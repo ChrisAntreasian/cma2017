@@ -14,7 +14,7 @@ const initialState = {
     {
       key: 'quint',
       title: 'Quintuplapus',
-      href: '/quinuplapus',
+      href: '/quintuplapus',
       img: 'burg-link__quint.jpg'
     }
   ]

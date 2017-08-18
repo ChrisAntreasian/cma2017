@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Burger from '../burger'
+import Burger from '../../sub/burger'
 
 class Quintuplapus extends Component {
     render() {

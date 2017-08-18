@@ -3,15 +3,14 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import BurgerLink from './BurgerLink.js'
+import BurgerLink from './sub/burgerLink'
 
 import {
     openBurger,
     closeBurger
-} from '../../modules/burger'
+} from './store.js'
 
 const Burger = (props) => {
-    console.log(props)
 
     const burgerLinks = props.burgerLinks.map((burgerLink) => {
         return (
