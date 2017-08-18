@@ -1,0 +1,41 @@
+/****** Hamburger ******/
+
+.burger {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+}
+.burger__overlay {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background: orange;
+  z-index: 502;
+  bottom: 0;
+  left: 0;
+}
+.burger__navigation {
+  position: absolute;
+  bottom: 0;
+  z-index: 501;
+  display: flex;
+  transition: height 1s ease in;
+  transition: top 1s ease-out;
+  flex-direction: column;
+  justify-content:space-around;
+
+}
+.burger__navigation--collapsed {
+  height: 0;
+}
+.burger__navigation--expanded {
+  margin-bottom: 200px;
+  height: 400px;
+}
+.burger-link {
+  width: 100%;
+}
