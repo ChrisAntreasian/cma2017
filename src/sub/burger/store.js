@@ -1,6 +1,8 @@
+import quintImg from './img/quint.jpg'
+import landingImg from './img/landing.jpg'
+
 export const BURGER_OPEN = 'burger/BURGER_OPEN'
 export const BURGER_CLOSE = 'burger/BURGER_CLOSE'
-
 
 const initialState = {
   burgerExpanded: false,
@@ -9,13 +11,19 @@ const initialState = {
       key: 'landing',
       title: 'Landing Page',
       href: '/landing',
-      img: 'burg-link__burger.jpg'
+      img: landingImg
     },
     {
       key: 'quint',
       title: 'Quintuplapus',
       href: '/quintuplapus',
-      img: 'burg-link__quint.jpg'
+      img: quintImg
+    },
+    {
+      key: 'counter',
+      title: 'Counter',
+      href: '/counter',
+      img: quintImg
     }
   ]
 }

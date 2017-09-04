@@ -1,11 +1,10 @@
 import React from 'react'
-import Burger from '../../sub/burger'
+import Header from '../../sub/header'
 
 const Landing = () => {
     return (
         <div>
             <h1>Welcome to the LandingPage</h1>
-            <Burger />
         </div>
     )
 }

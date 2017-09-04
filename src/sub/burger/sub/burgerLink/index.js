@@ -6,7 +6,7 @@ const BurgerLink = (props) => {
         <div className="burger-link">
             <Link to={props.href}>
                 <div className="burger-link__image">
-                    <img src={props.image} alt={props.title} />
+                    <img src={props.img} alt={props.title} />
                 </div>
                 <div className="burger-link__title">
                     {props.title}

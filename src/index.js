@@ -3,10 +3,11 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './base/store/index.js'
-import App from './base/app'
+import App from './base'
 
 import './index.css'
 import './styles/burger.css'
+import './styles/header.css'
 
 const target = document.querySelector('#root')
 
