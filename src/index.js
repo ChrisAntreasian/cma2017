@@ -6,6 +6,7 @@ import store, { history } from './base/store/index.js'
 import App from './base'
 
 import './index.css'
+import './styles/base.css'
 import './styles/burger.css'
 import './styles/header.css'
 

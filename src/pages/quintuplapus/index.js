@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Header from '../../sub/header'
-import Burger from '../../sub/burger'
 
 class Quintuplapus extends Component {
     render() {

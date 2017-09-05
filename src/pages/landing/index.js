@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../sub/header'
 
 const Landing = () => {
     return (

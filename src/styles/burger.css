@@ -4,8 +4,8 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
 }
 .burger__overlay {
   content: '';
@@ -15,8 +15,8 @@
   z-index: 502;
   bottom: 0;
   left: 0;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
 }
 .burger__navigation {
   position: absolute;
@@ -34,14 +34,14 @@
   margin-bottom: -60px;
 }
 .burger__navigation--expanded {
-  margin-bottom: 140px;
+  margin-bottom: 100px;
 }
 .burger-link {
   width: 100%;
   margin-bottom: 10px;
 }
 .burger-link__image {
-  width: 140px;
+  width: 100px;
   height: auto;
 }
 .burger-link__image img {
