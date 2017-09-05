@@ -1,0 +1,14 @@
+
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.main {
+    margin-top: 38px;
+}
+.wrap {
+    width: 100%;
+    padding: 0 100px;
+    box-sizing: border-box;
+}

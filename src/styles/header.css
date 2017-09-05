@@ -1,0 +1,52 @@
+.header {
+    width: 100%;
+    background: #1C5499;
+    background-image: linear-gradient(to bottom, #1C5499, #15447e);
+    border-bottom: 3px solid #1f5ca7;
+    color: white;
+    position: fixed;
+    top: 0;
+}
+.header a {
+    color: white;
+    cursor: pointer;
+}
+.header__wrap {
+    height: 30px;
+    line-height: 30px;
+}
+.header__user {
+    float: right;
+    position: relative;
+    width: 150px;
+    z-index: 500;
+}
+.header__user-status {
+    background-image: linear-gradient(to bottom, #1C5499, #15447e);
+    z-index: 501;
+    position: absolute;
+}
+.header__logo {
+    float: left;
+}
+.header__dropdown {
+    height: 70px;
+    width: 150px;
+    background:#1e70a8;
+    background-image: linear-gradient(to bottom, #1e70a8, #227fbf);
+    text-align: center;
+    line-height: 70px;
+    position: absolute;
+    bottom: 0;
+    z-index: 499;
+}
+.header__dropdown--visible {
+    margin-bottom: -103px;
+}
+.header__dropdown-x {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 3px 3px 0 0;
+    line-height: 13px;
+}
