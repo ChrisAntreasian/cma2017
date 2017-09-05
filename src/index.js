@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './base/store/index.js'
 import App from './base'
 
+import 'normalize.css'
 import './index.css'
 import './styles/base.css'
 import './styles/burger.css'

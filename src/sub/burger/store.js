@@ -20,6 +20,12 @@ const initialState = {
       img: quintImg
     },
     {
+      key: 'posts',
+      title: 'Posts',
+      href: '/posts',
+      img: landingImg
+    },
+    {
       key: 'counter',
       title: 'Counter',
       href: '/counter',

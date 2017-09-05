@@ -31,7 +31,7 @@
 }
 .burger__navigation--collapsed {
   height: 0;
-  margin-bottom: -60px;
+  margin-bottom: -110px;
 }
 .burger__navigation--expanded {
   margin-bottom: 100px;
