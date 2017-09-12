@@ -1,6 +1,6 @@
-const PostsApi = './../base/models/Posts.js'
+import PostsApi from './../../base/models/Posts.js'
 
-export const GET_POST = 'posts/GET_POST'
+export const GET_POSTS = 'posts/GET_POSTS'
 
 const initialState = {
   posts: [],
@@ -10,10 +10,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
    
-    case GET_POST:
+    case GET_POSTS:
       return {
         ...state,
-        activePostId: action.payload.activePostId
+        posts: action.posts
       }
 
     default:
@@ -21,13 +21,13 @@ export default (state = initialState, action) => {
   }
 }
 
-export const getPost = (id) => {
+export const getPosts = () => {
+  const posts = PostsApi.getAll()
+  console.log(posts)
   return dispatch => {
     dispatch({
-      type: GET_POST,
-      payload: {
-        postId: id
-      }
+      type: GET_POSTS,
+      posts: ['posts']
     })
   }
 }

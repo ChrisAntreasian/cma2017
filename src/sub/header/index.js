@@ -8,8 +8,8 @@ import UserStatus from './sub/UserStatus'
 import LogInDropdown from './sub/LogInDropdown'
 
 import {
-    displayLogin,
-    hideLogin,
+    displayLogIn,
+    hideLogIn,
     logIn,
     logOut
 } from './store.js'
@@ -31,9 +31,9 @@ class Header extends Component {
         // let scrollPosition = window.pageYOffset || document.documentElement.scrollTop
 
         // if (!this.props.user.loggedIn && scrollPosition < previousScrollPosition) {
-        //     this.props.displayLogin()
+        //     this.props.displayLogIn()
         // } else {
-        //     this.props.hideLogin()
+        //     this.props.hideLogIn()
         // }
         
         // previousScrollPosition = scrollPosition
@@ -53,13 +53,13 @@ class Header extends Component {
 
                         <UserStatus 
                         user={this.props.user} 
-                        displayLogin={this.props.displayLogin}
+                        displayLogIn={this.props.displayLogIn}
                         logOut={this.props.logOut}/>
 
                         <LogInDropdown
                         logIn={this.props.logIn}
-                        hideLogin={this.props.hideLogin}
-                        loginDisplayed={this.props.loginDisplayed}
+                        hideLogIn={this.props.hideLogIn}
+                        logInDisplayed={this.props.logInDisplayed}
                         loggedIn={this.props.user.loggedIn} />
 
                     </div>
@@ -72,12 +72,12 @@ class Header extends Component {
 const mapStateToProps = state => ({
     user: state.header.user,
     submitting: state.header.submitting,
-    loginDisplayed: state.header.loginDisplayed
+    logInDisplayed: state.header.logInDisplayed
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    displayLogin,
-    hideLogin,
+    displayLogIn,
+    hideLogIn,
     logIn,
     logOut
 }, dispatch)

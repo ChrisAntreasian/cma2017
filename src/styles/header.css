@@ -18,7 +18,7 @@
 .header__user {
     float: right;
     position: relative;
-    width: 150px;
+    width: 320px;
     z-index: 500;
 }
 .header__user-status {
@@ -49,4 +49,7 @@
     right: 0;
     margin: 3px 3px 0 0;
     line-height: 13px;
+}
+.header__logged-out {
+    text-align: right;
 }
