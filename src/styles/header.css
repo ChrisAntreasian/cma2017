@@ -30,18 +30,19 @@
     float: left;
 }
 .header__dropdown {
-    height: 70px;
-    width: 150px;
     background:#1e70a8;
     background-image: linear-gradient(to bottom, #1e70a8, #227fbf);
     text-align: center;
     line-height: 70px;
     position: absolute;
-    bottom: 0;
+    top: 0;
     z-index: 499;
+    padding: 20px;
+    height: 100px;
+    margin-top: -140px;
 }
 .header__dropdown--visible {
-    margin-bottom: -103px;
+    margin-top: 33px;
 }
 .header__dropdown-x {
     position: absolute;
@@ -50,6 +51,29 @@
     margin: 3px 3px 0 0;
     line-height: 13px;
 }
+.header__login-form {
+    line-height: 18px;
+    text-align: left;
+}
+.header__login-form label {
+    margin-right: 3px;
+    width: 80px;
+    display: inline-block;
+}
+.header__login-form input {
+    margin-bottom: 10px;
+}
+.header__login-form button {
+    display: block;
+    margin: 0 auto;
+}
 .header__logged-out {
     text-align: right;
+}
+.header__error {
+    position: absolute;
+    top: 50;
+    right: 0;
+    background: #960f0f;
+    background-image: linear-gradient(to top, #960f0f, #c31515);
 }

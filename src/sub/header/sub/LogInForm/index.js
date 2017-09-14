@@ -4,20 +4,12 @@ const LogInForm = (props) => {
     let username;
     let password
 
-    const loginFormSubmit = () => {
+    const loginFormSubmit = (e) => {
+        e.preventDefault()
         props.logIn({
-            username: username,
-            password: password
+            username: username.value,
+            password: password.value
         });        
-    }
-
-    let errorNode = null;
-    if (props.logInError) {
-        errorNode = (
-            <div className="header__login-error">
-                {props.logInError}
-            </div>
-        )
     }
 
     let loadingNode = null;
@@ -34,12 +26,11 @@ const LogInForm = (props) => {
             <form className="login" onSubmit={loginFormSubmit}>
                 <label>username:</label>
                 <input ref={(ref) => username = ref} placeholder="username" />
-                <label>username:</label>
+                <label>password:</label>
                 <input ref={(ref) => password = ref} placeholder="password"  />
                 <button>Log In</button>
             </form>
-            {loadingNode}
-            {errorNode}       
+            {loadingNode}     
         </div>
     )
 }

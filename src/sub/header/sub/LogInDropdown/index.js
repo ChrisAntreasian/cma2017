@@ -13,7 +13,7 @@ const LogInDropdown = (props) => {
     return (
         <div className={"header__dropdown" + displayClass}>
             <a className="header__dropdown-x" onClick={props.hideLogIn}>x</a>
-            <a onClick={props.logIn}>Click to log in.</a>
+            <LogInForm logIn={props.logIn} logInLoading={props.logInLoading} />
         </div>
     )
 }

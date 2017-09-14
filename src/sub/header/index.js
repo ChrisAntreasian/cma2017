@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 
 import UserStatus from './sub/UserStatus'
 import LogInDropdown from './sub/LogInDropdown'
+import LogInError from './sub/LogInError'
 
 import {
     displayLogIn,
@@ -60,7 +61,10 @@ class Header extends Component {
                         logIn={this.props.logIn}
                         hideLogIn={this.props.hideLogIn}
                         logInDisplayed={this.props.logInDisplayed}
-                        loggedIn={this.props.user.loggedIn} />
+                        loggedIn={this.props.user.loggedIn}
+                        logInLoading={this.props.logInLoading}/>
+
+                        <LogInError error={this.props.logInError} />
 
                     </div>
                 </div>
@@ -71,8 +75,9 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
     user: state.header.user,
-    submitting: state.header.submitting,
-    logInDisplayed: state.header.logInDisplayed
+    logInDisplayed: state.header.logInDisplayed,
+    logInLoading: state.header.logInLoading,
+    logInError: state.header.logInError
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
