@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import UserStatus from './sub/UserStatus'
-import LogInDropdown from './sub/LogInDropdown'
-import LogInError from './sub/LogInError'
+import Dropdown from './sub/Dropdown'
 
 import {
     displayLogIn,
@@ -55,6 +54,15 @@ class Header extends Component {
     }
 
     render () {       
+        let error = null
+        if (this.props.logIn.error) {
+            error = (
+                <div className="header__error">
+                    {this.props.logIn.error}
+                </div>
+            )
+        }
+
         return (
             <header className="header">
                 <div className="header__wrap wrap clear">
@@ -70,13 +78,13 @@ class Header extends Component {
                         displayLogIn={this.props.displayLogIn}
                         logOutUser={this.props.logOutUser}/>
 
-                        <LogInDropdown
+                        <Dropdown
                         logInUser={this.props.logInUser}
                         hideLogIn={this.props.hideLogIn}
                         loggedIn={this.props.user.loggedIn}
                         logIn={this.props.logIn} />
 
-                        <LogInError error={this.props.logIn.error} />
+                        {error}
 
                     </div>
                 </div>

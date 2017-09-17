@@ -1,8 +1,8 @@
 
 import React from 'react'
-import LogInForm from '../LogInForm'
+import LogInForm from './sub/LogInForm'
 
-const LogInDropdown = (props) => {
+const Dropdown = (props) => {
     if (props.loggedIn) {
         return null
     }
@@ -18,4 +18,4 @@ const LogInDropdown = (props) => {
     )
 }
 
-export default LogInDropdown
+export default Dropdown

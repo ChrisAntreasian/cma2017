@@ -46,10 +46,8 @@ export const getPosts = () => {
         }).get({
             limit: 8
         }).then( r => {
-            // console.log(r)
             let posts = []
             for (let post of r) {
-                // console.log(post)
                 posts.push(post)
             }
             dispatch({
@@ -59,7 +57,7 @@ export const getPosts = () => {
         }).catch( r => {
             dispatch({
                 type: ERROR,
-                error: r.message 
+                error: r.message
             })
         })
   }

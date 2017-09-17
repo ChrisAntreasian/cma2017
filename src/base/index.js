@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 
-import Counter from '../pages/counter'
-import Quintuplapus from '../pages/quintuplapus'
-import Landing from '../pages/landing'
-import Posts from '../pages/posts'
+import Counter from '../pages/Counter'
+import Quintuplapus from '../pages/Quintuplapus'
+import Landing from '../pages/Landing'
+import Posts from '../pages/Posts'
 
-import Header from '../sub/header'
-import Burger from '../sub/burger'
+import Header from '../sub/Header'
+import Burger from '../sub/Burger'
 
 const App = () => (
   <div>
