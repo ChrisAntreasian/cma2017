@@ -1,5 +1,5 @@
-import fetchival from 'fetchival'
 
+import fetchival from 'fetchival'
 import appConfigs from './../../base/app_configs.js'
 
 export const DISPLAY_LOGIN = 'burger/DISPLAY_LOGIN'
@@ -10,9 +10,11 @@ export const LOGIN_LOADING = 'burger/LOGIN_LOADING'
 export const LOGOUT = 'burger/LOGOUT'
 
 const initialState = {
-    logInDisplayed: false,
-    logInError: null,
-    logInLoading: false,
+    logIn: {
+        displayed: false,
+        error: null,
+        loading: false
+    },
     user: {
         loggedIn: false,
         name: null,
@@ -26,25 +28,39 @@ export default (state = initialState, action) => {
         case DISPLAY_LOGIN:
             return {
                 ...state,
-                logInDisplayed: true
+                logIn: {
+                    displayed: true,
+                    error: null,
+                    loading: false
+                }
             }
         case HIDE_LOGIN:
             return {
                 ...state,
-                logInDisplayed: false
+                logIn: {
+                    displayed: false,
+                    error: null,
+                    loading: false
+                }
             }
         case LOGIN_SUCCESS:
             return {
                 ...state,
                 user: action.user,
-                logInDisplayed: false,
-                logInLoading: false
+                logIn: {
+                    displayed: false,
+                    error: null,
+                    loading: false
+                }
             }
         case LOGIN_ERROR:
             return {
                 ...state,
-                logInError: action.message,
-                logInLoading: false
+                logIn: {
+                    displayed: true,
+                    error: action.message,
+                    loading: false
+                }
             }
         case LOGOUT:
             return {
@@ -54,8 +70,11 @@ export default (state = initialState, action) => {
          case LOGIN_LOADING:
             return {
                 ...state,
-                logInLoading: true,
-                logInError: null
+                logIn: {
+                    displayed: true,
+                    error: null,
+                    loading: true
+                }
             }
         default:
             return state
@@ -86,7 +105,7 @@ export const logInLoading = () => {
     }
 }
 
-export const logIn = (d) => {
+export const logInUser = (d) => {
     return dispatch => {
         dispatch({
             type: LOGIN_LOADING
@@ -115,7 +134,7 @@ export const logIn = (d) => {
     }
 }
 
-export const logOut = () => {
+export const logOutUser = () => {
     return dispatch => {
         dispatch({
             type: LOGOUT,

@@ -7,13 +7,13 @@ const LogInDropdown = (props) => {
         return null
     }
 
-    const displayClass = (props.logInDisplayed) ? 
+    const displayClass = (props.logIn.displayed) ? 
         ' header__dropdown--visible' : ' header__dropdown--hidden';
 
     return (
         <div className={"header__dropdown" + displayClass}>
             <a className="header__dropdown-x" onClick={props.hideLogIn}>x</a>
-            <LogInForm logIn={props.logIn} logInLoading={props.logInLoading} />
+            <LogInForm logInUser={props.logInUser} logInLoading={props.logIn.loading} />
         </div>
     )
 }

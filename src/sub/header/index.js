@@ -11,9 +11,22 @@ import LogInError from './sub/LogInError'
 import {
     displayLogIn,
     hideLogIn,
-    logIn,
-    logOut
+    logInUser,
+    logOutUser
 } from './store.js'
+
+
+const mapStateToProps = state => ({
+    user: state.header.user,
+    logIn: state.header.logIn
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    displayLogIn,
+    hideLogIn,
+    logInUser,
+    logOutUser
+}, dispatch)
 
 class Header extends Component {
     previousScrollPosition = 0
@@ -55,16 +68,15 @@ class Header extends Component {
                         <UserStatus 
                         user={this.props.user} 
                         displayLogIn={this.props.displayLogIn}
-                        logOut={this.props.logOut}/>
+                        logOutUser={this.props.logOutUser}/>
 
                         <LogInDropdown
-                        logIn={this.props.logIn}
+                        logInUser={this.props.logInUser}
                         hideLogIn={this.props.hideLogIn}
-                        logInDisplayed={this.props.logInDisplayed}
                         loggedIn={this.props.user.loggedIn}
-                        logInLoading={this.props.logInLoading}/>
+                        logIn={this.props.logIn} />
 
-                        <LogInError error={this.props.logInError} />
+                        <LogInError error={this.props.logIn.error} />
 
                     </div>
                 </div>
@@ -73,19 +85,6 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    user: state.header.user,
-    logInDisplayed: state.header.logInDisplayed,
-    logInLoading: state.header.logInLoading,
-    logInError: state.header.logInError
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-    displayLogIn,
-    hideLogIn,
-    logIn,
-    logOut
-}, dispatch)
 
 export default connect(
     mapStateToProps,

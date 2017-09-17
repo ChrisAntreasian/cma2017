@@ -1,34 +1,67 @@
-import PostsApi from './../../base/models/Posts.js'
+import fetchival from 'fetchival'
+import appConfigs from './../../base/app_configs.js'
 
-export const GET_POSTS = 'posts/GET_POSTS'
+export const SET_ALL = 'posts/SET_ALL'
+export const LOADING = 'posts/POSTS_LOADING'
+export const ERROR = 'posts/ERROR'
 
 const initialState = {
-  posts: [],
-  activePostId: null
+    posts: [],
+    activeId: null,
+    loading: false,
+    error: null
 }
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-   
-    case GET_POSTS:
-      return {
-        ...state,
-        posts: action.posts
-      }
+    switch (action.type) {
+        case SET_ALL:
+            return {
+                ...state,
+                posts: action.posts,
+                loading: false
+            }
+        case LOADING:
+            return {
+                ...state,
+                loading: true
+            }
+        case ERROR:
+            return {
+                ...state,
+                error: action.error
+            }
 
-    default:
-      return state
-  }
+        default:
+            return state
+    }
 }
 
 export const getPosts = () => {
-  const posts = PostsApi.getAll()
-  console.log(posts)
   return dispatch => {
     dispatch({
-      type: GET_POSTS,
-      posts: ['posts']
-    })
+            type: LOADING
+        })
+        fetchival( appConfigs.baseurl + '/wp/v2/posts', {
+            mode: 'cors'
+        }).get({
+            limit: 8
+        }).then( r => {
+            // console.log(r)
+            let posts = []
+            for (let post of r) {
+                // console.log(post)
+                posts.push(post)
+            }
+            dispatch({
+                type: SET_ALL,
+                posts: posts
+            })
+        }).catch( r => {
+            dispatch({
+                type: ERROR,
+                error: r.message 
+            })
+        })
   }
 }
 

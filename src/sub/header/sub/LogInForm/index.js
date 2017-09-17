@@ -6,7 +6,7 @@ const LogInForm = (props) => {
 
     const loginFormSubmit = (e) => {
         e.preventDefault()
-        props.logIn({
+        props.logInUser({
             username: username.value,
             password: password.value
         });        
