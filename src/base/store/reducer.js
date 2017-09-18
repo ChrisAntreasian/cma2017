@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import counter from './../../pages/counter/store.js'
-import posts from './../../pages/posts/store.js'
+import counter from './../../pages/Counter/store.js'
+import posts from './../../pages/Posts/store.js'
 
-import header from './../../sub/header/store.js'
-import burger from './../../sub/burger/store.js'
+import header from './../../sub/Header/store.js'
+import burger from './../../sub/Burger/store.js'
 
 export default combineReducers({
   routing: routerReducer,

@@ -46,13 +46,13 @@ export const getPosts = () => {
         }).get({
             limit: 8
         }).then( r => {
-            let posts = []
+            let postsArray = []
             for (let post of r) {
-                posts.push(post)
+                postsArray.push(post)
             }
             dispatch({
                 type: SET_ALL,
-                posts: posts
+                posts: postsArray
             })
         }).catch( r => {
             dispatch({

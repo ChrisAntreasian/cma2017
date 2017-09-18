@@ -10,6 +10,7 @@ import './index.css'
 import './styles/base.css'
 import './styles/burger.css'
 import './styles/header.css'
+import './styles/posts.css'
 
 const target = document.querySelector('#root')
 

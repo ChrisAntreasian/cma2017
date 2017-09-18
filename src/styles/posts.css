@@ -1,0 +1,22 @@
+.post {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100%;
+}
+.post:first-of-type {
+    margin-top: 0;
+}
+.post .alignleft {
+    float: left;
+}
+.post .alignright {
+    float: right;
+}
+.post .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

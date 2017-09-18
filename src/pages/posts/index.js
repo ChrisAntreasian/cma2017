@@ -14,7 +14,6 @@ class Posts extends Component {
     }
 
     render() {
-        console.log(this.props.posts)
 
         let loadingNode = null
         if (this.props.loading) {
@@ -24,9 +23,6 @@ class Posts extends Component {
         }
 
         let postsNode = null
-        for (let post of this.props.posts) {
-            console.log(post)
-        }
         if (this.props.posts) {
             postsNode = this.props.posts.map((post, i) => {
                 return (

@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import BurgerLink from './sub/burgerLink'
+import BurgerLink from './sub/BurgerLink'
 
 import {
     openBurger,
