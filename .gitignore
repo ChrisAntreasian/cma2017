@@ -21,4 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # cma
-./src/base/app_configs.js
+src/base/app_configs.js
