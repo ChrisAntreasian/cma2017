@@ -5,7 +5,7 @@ const UserStatus = (props) => {
         <div className="header__user-status">
             {(props.user.loggedIn) ? (
                 <div className="header__logged-in">
-                    {props.user.name} <a onClick={props.logOut}>(Log Out)</a>
+                    {props.user.name} <a onClick={props.logOutUser}>(Log Out)</a>
                 </div>
             ) : (
                 <a className="header__logged-out" onClick={props.displayLogIn}>

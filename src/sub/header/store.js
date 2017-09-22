@@ -104,6 +104,17 @@ export const logInLoading = () => {
         })
     }
 }
+export const logInUserFromStorage = () => {
+    return dispatch => {
+        let userData = JSON.parse(window.localStorage.getItem('user'))
+        if (userData) {
+            dispatch({
+                type: LOGIN_SUCCESS,
+                user: userData
+            })
+        }
+    }
+}
 
 export const logInUser = (d) => {
     return dispatch => {
@@ -116,14 +127,18 @@ export const logInUser = (d) => {
             username: d.username,
             password: d.password
         }).then( r => {
+            const userData = {
+                loggedIn: true,
+                name: r.user_display_name,
+                email: r.user_email,
+                token: r.user_token
+            }
+
+            window.localStorage.setItem('user', JSON.stringify(userData))
+
             dispatch({
                 type: LOGIN_SUCCESS,
-                user: {
-                    loggedIn: true,
-                    name: r.user_display_name,
-                    email: r.user_email,
-                    token: r.user_token 
-                }
+                user: userData
             })
         }).catch( r => {
             dispatch({
@@ -136,6 +151,7 @@ export const logInUser = (d) => {
 
 export const logOutUser = () => {
     return dispatch => {
+        window.localStorage.removeItem('user')
         dispatch({
             type: LOGOUT,
             user: {

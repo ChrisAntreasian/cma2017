@@ -11,7 +11,8 @@ import {
     displayLogIn,
     hideLogIn,
     logInUser,
-    logOutUser
+    logOutUser,
+    logInUserFromStorage
 } from './store.js'
 
 
@@ -24,22 +25,24 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     displayLogIn,
     hideLogIn,
     logInUser,
-    logOutUser
+    logOutUser,
+    logInUserFromStorage
 }, dispatch)
 
 class Header extends Component {
     previousScrollPosition = 0
 
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll)
+        this.props.logInUserFromStorage()
+        // window.addEventListener('scroll', this.handleScroll)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll)
+        // window.removeEventListener('scroll', this.handleScroll)
     }
 
     handleScroll() {
-        console.log('scrolling')
+        // console.log('scrolling')
         // let previousScrollPosition = this.previousScrollPosition
         // let scrollPosition = window.pageYOffset || document.documentElement.scrollTop
 
