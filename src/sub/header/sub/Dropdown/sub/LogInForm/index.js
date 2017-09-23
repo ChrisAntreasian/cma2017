@@ -25,9 +25,9 @@ const LogInForm = (props) => {
         <div className="header__login-form">
             <form className="login" onSubmit={loginFormSubmit}>
                 <label>username:</label>
-                <input ref={(ref) => username = ref} placeholder="username" />
+                <input ref={(ref) => username = ref} placeholder="username" type="text" />
                 <label>password:</label>
-                <input ref={(ref) => password = ref} placeholder="password"  />
+                <input ref={(ref) => password = ref} placeholder="password" type="password" />
                 <button>Log In</button>
             </form>
             {loadingNode}     
