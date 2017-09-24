@@ -1,0 +1,1 @@
+Using react create app to create front end for wordpress api with redux and reactjs.
