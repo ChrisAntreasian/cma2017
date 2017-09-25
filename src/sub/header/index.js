@@ -15,6 +15,7 @@ import {
     logInUserFromStorage
 } from './store.js'
 
+import styles from './../styles/heer.css'
 
 const mapStateToProps = state => ({
     user: state.header.user,
@@ -60,21 +61,21 @@ class Header extends Component {
         let error = null
         if (this.props.logIn.error) {
             error = (
-                <div className="header__error">
+                <div className={styles.error}>
                     {this.props.logIn.error}
                 </div>
             )
         }
 
         return (
-            <header className="header">
+            <header className={styles.header}>
                 <div className="header__wrap wrap clear">
-                    <div className="header__logo">
+                    <div className={styles.logo}>
                         <Link to="/landing">
                             Chris A Project 2017
                         </Link>
                     </div>
-                    <div className="header__user">
+                    <div className={styles.user}>
 
                         <UserStatus 
                         user={this.props.user} 

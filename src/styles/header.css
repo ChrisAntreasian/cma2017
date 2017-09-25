@@ -15,7 +15,7 @@
     height: 30px;
     line-height: 30px;
 }
-.header__user {
+.user {
     float: right;
     position: relative;
     width: 320px;
@@ -26,7 +26,7 @@
     z-index: 501;
     position: absolute;
 }
-.header__logo {
+.logo {
     float: left;
 }
 .header__dropdown {
@@ -70,7 +70,7 @@
 .header__logged-out {
     text-align: right;
 }
-.header__error {
+.error {
     position: absolute;
     top: 50;
     right: 0;
