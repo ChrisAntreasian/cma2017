@@ -7,9 +7,7 @@ import App from './base'
 
 import 'normalize.css'
 import './index.css'
-import './styles/base.css'
 import './styles/burger.css'
-import './styles/header.css'
 import './styles/posts.css'
 import './styles/quint.css'
 

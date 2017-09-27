@@ -1,14 +1,16 @@
 import React from 'react'
 
+import styles from './../../styles.css'
+
 const UserStatus = (props) => {
     return (
-        <div className="header__user-status">
+        <div className={styles.userStatus}>
             {(props.user.loggedIn) ? (
-                <div className="header__logged-in">
+                <div>
                     {props.user.name} <a onClick={props.logOutUser}>(Log Out)</a>
                 </div>
             ) : (
-                <a className="header__logged-out" onClick={props.displayLogIn}>
+                <a onClick={props.displayLogIn}>
                     Log in
                 </a>
             )}

@@ -1,6 +1,10 @@
 
+import cx from 'classnames';
+
 import React from 'react'
 import LogInForm from './sub/LogInForm'
+
+import styles from './../../styles.css'
 
 const Dropdown = (props) => {
     if (props.loggedIn) {
@@ -8,11 +12,11 @@ const Dropdown = (props) => {
     }
 
     const displayClass = (props.logIn.displayed) ? 
-        ' header__dropdown--visible' : ' header__dropdown--hidden';
+        styles.dropdownVisible : '';
 
     return (
-        <div className={"header__dropdown" + displayClass}>
-            <a className="header__dropdown-x" onClick={props.hideLogIn}>x</a>
+        <div className={cx(styles.dropdown, displayClass)}>
+            <a className={styles.dropdownClose} onClick={props.hideLogIn}>x</a>
             <LogInForm logInUser={props.logInUser} logInLoading={props.logIn.loading} />
         </div>
     )

@@ -15,7 +15,7 @@ import {
     logInUserFromStorage
 } from './store.js'
 
-import styles from './../styles/heer.css'
+import styles from './styles.css'
 
 const mapStateToProps = state => ({
     user: state.header.user,
@@ -69,7 +69,7 @@ class Header extends Component {
 
         return (
             <header className={styles.header}>
-                <div className="header__wrap wrap clear">
+                <div className={styles.wrap}>
                     <div className={styles.logo}>
                         <Link to="/landing">
                             Chris A Project 2017

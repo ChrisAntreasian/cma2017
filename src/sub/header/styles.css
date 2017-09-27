@@ -1,3 +1,4 @@
+
 .header {
     width: 100%;
     background: #1C5499;
@@ -11,25 +12,28 @@
     color: white;
     cursor: pointer;
 }
-.header__wrap {
+.wrap {
+    compose: wrap from "./../../styles.css";
     height: 30px;
     line-height: 30px;
 }
+.logo {
+    float: left;
+}
+
 .user {
     float: right;
     position: relative;
     width: 320px;
     z-index: 500;
 }
-.header__user-status {
+.userStatus {
     background-image: linear-gradient(to bottom, #1C5499, #15447e);
     z-index: 501;
     position: absolute;
 }
-.logo {
-    float: left;
-}
-.header__dropdown {
+
+.dropdown {
     background:#1e70a8;
     background-image: linear-gradient(to bottom, #1e70a8, #227fbf);
     text-align: center;
@@ -41,29 +45,30 @@
     height: 100px;
     margin-top: -140px;
 }
-.header__dropdown--visible {
+.dropdownVisible {
     margin-top: 33px;
 }
-.header__dropdown-x {
+.dropdownClose {
     position: absolute;
     top: 0;
     right: 0;
     margin: 3px 3px 0 0;
     line-height: 13px;
 }
-.header__login-form {
+
+.form {
     line-height: 18px;
     text-align: left;
 }
-.header__login-form label {
+.form label {
     margin-right: 3px;
     width: 80px;
     display: inline-block;
 }
-.header__login-form input {
+.form input {
     margin-bottom: 10px;
 }
-.header__login-form button {
+.form button {
     display: block;
     margin: 0 auto;
 }

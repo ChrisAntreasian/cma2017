@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from './../../../../styles.css'
+
 const LogInForm = (props) => {
     let username;
     let password
@@ -22,7 +24,7 @@ const LogInForm = (props) => {
     }
 
     return (
-        <div className="header__login-form">
+        <div className={styles.form}>
             <form className="login" onSubmit={loginFormSubmit}>
                 <label>username:</label>
                 <input ref={(ref) => username = ref} placeholder="username" type="text" />
