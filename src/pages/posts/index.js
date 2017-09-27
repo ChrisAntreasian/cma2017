@@ -39,14 +39,14 @@ class Posts extends Component {
         }
 
         return (
-            <div>
+            <section>
                 <h1>WP posts</h1>
-                <section className="posts__list">
+                <div>
                     {loadingNode}
                     {errorNode}
                     {postsNode}
-                </section>
-            </div>
+                </div>
+            </section>
         )
     }
 }

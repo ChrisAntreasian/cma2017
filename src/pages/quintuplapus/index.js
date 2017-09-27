@@ -4,6 +4,8 @@ import FlipPage from 'react-flip-page'
 
 import { connect } from 'react-redux'
 
+import styles from './styles.css'
+
 class Quintuplapus extends Component {
     render() {
         console.log(this.props)
@@ -13,12 +15,12 @@ class Quintuplapus extends Component {
             )
         })
         return (
-            <section className="quint">
+            <section>
                 <h1>Welcome to the Quintpuapus</h1>
-                <div className="quint__book-container">
+                <div className={styles.container}>
                     <FlipPage 
                     orientation="horizontal"  
-                    className="quint__book"
+                    className={styles.book}
                     width={707}
                     pageBackground="none"
                     uncutPages={true}

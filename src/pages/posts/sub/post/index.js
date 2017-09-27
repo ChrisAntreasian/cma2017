@@ -1,11 +1,12 @@
 import React from 'react'
+import styles from './../../styles.css'
 
 const Post = (props) => {
     return (
-        <div className="post">
-            <h3 className="post__title" dangerouslySetInnerHTML={{__html: props.title.rendered}} />
-            <div className="post__content" dangerouslySetInnerHTML={{__html: props.content.rendered}} />
-        </div>
+        <article className={styles.post}>
+            <h3 dangerouslySetInnerHTML={{__html: props.title.rendered}} />
+            <div dangerouslySetInnerHTML={{__html: props.content.rendered}} />
+        </article>
     )
 }
 

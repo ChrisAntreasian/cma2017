@@ -7,7 +7,7 @@
   width: 100px;
   height: 100px;
 }
-.burger__overlay {
+.overlay {
   content: '';
   display: block;
   position: absolute;
@@ -18,7 +18,7 @@
   width: 100px;
   height: 100px;
 }
-.burger__navigation {
+.navigation {
   position: absolute;
   bottom: 0;
   z-index: 501;
@@ -29,21 +29,21 @@
   justify-content:space-around;
 
 }
-.burger__navigation--collapsed {
+.navigationCollapsed {
   height: 0;
   margin-bottom: -110px;
 }
-.burger__navigation--expanded {
+.navigationExpanded {
   margin-bottom: 100px;
 }
-.burger-link {
+.link {
   width: 100%;
   margin-bottom: 10px;
 }
-.burger-link__image {
+.linkImage {
   width: 100px;
   height: auto;
 }
-.burger-link__image img {
+.linkImage img {
   width: 100%;
 }

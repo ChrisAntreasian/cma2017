@@ -6,10 +6,7 @@ import store, { history } from './base/store/index.js'
 import App from './base'
 
 import 'normalize.css'
-import './index.css'
-import './styles/burger.css'
-import './styles/posts.css'
-import './styles/quint.css'
+import './styles.css'
 
 const target = document.querySelector('#root')
 

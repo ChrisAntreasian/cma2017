@@ -10,6 +10,9 @@ import {
     closeBurger
 } from './store.js'
 
+import cx from 'classnames'
+import styles from './styles.css'
+
 const Burger = (props) => {
 
     const burgerLinks = props.burgerLinks.map((burgerLink) => {
@@ -18,16 +21,16 @@ const Burger = (props) => {
         )
     });
 
-    let burgerLinksClass = ' burger__navigation--collapsed'
+    let burgerLinksClass = styles.navigationCollapsed
     let burgerAction = props.openBurger
     if (props.burgerExpanded) {
-        burgerLinksClass = ' burger__navigation--expanded'
+        burgerLinksClass = styles.navigationExpanded
         burgerAction = props.closeBurger
     }
     return (
-        <nav className="burger" onClick={burgerAction}>
-            <div className="burger__overlay">Menu</div>
-            <div className={"burger__navigation" + burgerLinksClass}>
+        <nav className={cx(styles.burger)} onClick={burgerAction}>
+            <div className={styles.overlay}>Menu</div>
+            <div className={cx(styles.navigation, burgerLinksClass)}>
                 {burgerLinks}
             </div>
         </nav>
