@@ -1,6 +1,6 @@
 
 import fetchival from 'fetchival'
-import appConfigs from './../../base/app_configs.js'
+import configs from './../../configs.js'
 
 export const DISPLAY_LOGIN = 'burger/DISPLAY_LOGIN'
 export const HIDE_LOGIN = 'burger/HIDE_LOGIN'
@@ -121,7 +121,7 @@ export const logInUser = (d) => {
         dispatch({
             type: LOGIN_LOADING
         })
-        fetchival( appConfigs.baseurl + '/jwt-auth/v1/token', {
+        fetchival( configs.baseurl + '/jwt-auth/v1/token', {
             mode: 'cors' 
         }).post({
             username: d.username,

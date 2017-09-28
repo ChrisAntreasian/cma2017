@@ -1,5 +1,5 @@
 import fetchival from 'fetchival'
-import appConfigs from './../../base/app_configs.js'
+import configs from './../../configs.js'
 
 export const SET_ALL = 'posts/SET_ALL'
 export const LOADING = 'posts/POSTS_LOADING'
@@ -41,7 +41,7 @@ export const getPosts = () => {
     dispatch({
             type: LOADING
         })
-        fetchival( appConfigs.baseurl + '/wp/v2/posts', {
+        fetchival( configs.baseurl + '/wp/v2/posts', {
             mode: 'cors'
         }).get({
             limit: 8

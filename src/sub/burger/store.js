@@ -24,12 +24,6 @@ const initialState = {
       title: 'Posts',
       href: '/posts',
       img: landingImg
-    },
-    {
-      key: 'counter',
-      title: 'Counter',
-      href: '/counter',
-      img: quintImg
     }
   ]
 }
