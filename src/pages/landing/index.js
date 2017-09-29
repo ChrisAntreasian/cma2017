@@ -1,10 +1,17 @@
+
 import React from 'react'
+import portrait from './img/chris-a-self-portrait.png'
+import styles from './styles.css'
 
 const Landing = () => {
     return (
-        <div>
+        <section>
             <h1>Welcome to the LandingPage</h1>
-        </div>
+            <img src={portrait} alt="Christopher Antreasian self portrait" className={styles.portrait}/>
+            <div>
+                placeholder
+            </div>
+        </section>
     )
 }
 

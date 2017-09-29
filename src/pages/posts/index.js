@@ -50,6 +50,7 @@ class Posts extends Component {
         )
     }
 }
+
 const mapStateToProps = state => ({
     posts: state.posts.posts,
     loading: state.posts.loading,
