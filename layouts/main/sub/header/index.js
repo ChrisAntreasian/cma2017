@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import UserStatus from './sub/UserStatus'
 import Dropdown from './sub/Dropdown'
+import Link from 'next/link'
 
 import {
     displayLogIn,
@@ -14,8 +14,6 @@ import {
     logOutUser,
     logInUserFromStorage
 } from './store.js'
-
-import styles from './styles.css'
 
 const mapStateToProps = state => ({
     user: state.header.user,
@@ -61,21 +59,21 @@ class Header extends Component {
         let error = null
         if (this.props.logIn.error) {
             error = (
-                <div className={styles.error}>
+                <div className="">
                     {this.props.logIn.error}
                 </div>
             )
         }
 
         return (
-            <header className={styles.header}>
-                <div className={styles.wrap}>
-                    <div className={styles.logo}>
-                        <Link to="/landing">
+            <header className="">
+                <div className="">
+                    <div className="">
+                        <Link href="/landing">
                             Chris A Project 2017
                         </Link>
                     </div>
-                    <div className={styles.user}>
+                    <div className="">
 
                         <UserStatus 
                         user={this.props.user} 

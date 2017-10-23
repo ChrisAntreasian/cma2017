@@ -3,15 +3,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import BurgerLink from './sub/BurgerLink'
+import BurgerLink from './sub/burgerLink'
 
 import {
     openBurger,
     closeBurger
 } from './store.js'
-
-import cx from 'classnames'
-import styles from './styles.css'
 
 const Burger = (props) => {
 
@@ -21,6 +18,7 @@ const Burger = (props) => {
         )
     });
 
+    let styles = {}; // remove me 
     let burgerLinksClass = styles.navigationCollapsed
     let burgerAction = props.openBurger
     if (props.burgerExpanded) {
@@ -28,9 +26,9 @@ const Burger = (props) => {
         burgerAction = props.closeBurger
     }
     return (
-        <nav className={cx(styles.burger)} onClick={burgerAction}>
-            <div className={styles.overlay}>Menu</div>
-            <div className={cx(styles.navigation, burgerLinksClass)}>
+        <nav className="" onClick={burgerAction}>
+            <div className="">Menu</div>
+            <div className="">
                 {burgerLinks}
             </div>
         </nav>

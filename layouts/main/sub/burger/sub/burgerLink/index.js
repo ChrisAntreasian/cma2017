@@ -1,20 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
-import styles from './../../styles.css'
+import Link from 'next/link'
 
 const BurgerLink = (props) => {    
     return (
-        <div className={styles.link}>
-            <Link to={props.href}>
-                <div className={styles.linkImage}>
+            <Link href={props.href}><a>
+                <div className="">
                     <img src={props.img} alt={props.title} />
                 </div>
                 <div>
                     {props.title}
                 </div>
-            </Link>
-        </div>
+            </a></Link>
     )
 }
 

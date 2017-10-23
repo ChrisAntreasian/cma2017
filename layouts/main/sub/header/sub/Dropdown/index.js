@@ -1,22 +1,21 @@
 
-import cx from 'classnames';
+// import cx from 'classnames';
 
 import React from 'react'
 import LogInForm from './sub/LogInForm'
-
-import styles from './../../styles.css'
 
 const Dropdown = (props) => {
     if (props.loggedIn) {
         return null
     }
 
+    let styles; // remove me!!!
     const displayClass = (props.logIn.displayed) ? 
-        styles.dropdownVisible : '';
+        styles : '';
 
     return (
-        <div className={cx(styles.dropdown, displayClass)}>
-            <a className={styles.dropdownClose} onClick={props.hideLogIn}>x</a>
+        <div className="">
+            <a className="" onClick={props.hideLogIn}>x</a>
             <LogInForm logInUser={props.logInUser} logInLoading={props.logIn.loading} />
         </div>
     )

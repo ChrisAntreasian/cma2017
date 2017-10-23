@@ -1,10 +1,8 @@
 import React from 'react'
 
-import styles from './../../styles.css'
-
 const UserStatus = (props) => {
     return (
-        <div className={styles.userStatus}>
+        <div className="">
             {(props.user.loggedIn) ? (
                 <div>
                     {props.user.name} <a onClick={props.logOutUser}>(Log Out)</a>
