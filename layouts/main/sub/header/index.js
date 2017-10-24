@@ -7,6 +7,9 @@ import UserStatus from './sub/UserStatus'
 import Dropdown from './sub/Dropdown'
 import Link from 'next/link'
 
+import styles from './styles.js'
+import { error } from './styles.js'
+
 import {
     displayLogIn,
     hideLogIn,
@@ -33,26 +36,6 @@ class Header extends Component {
 
     componentDidMount() {
         this.props.logInUserFromStorage()
-        // window.addEventListener('scroll', this.handleScroll)
-    }
-
-    componentWillUnmount() {
-        // window.removeEventListener('scroll', this.handleScroll)
-    }
-
-    handleScroll() {
-        // console.log('scrolling')
-        // let previousScrollPosition = this.previousScrollPosition
-        // let scrollPosition = window.pageYOffset || document.documentElement.scrollTop
-
-        // if (!this.props.user.loggedIn && scrollPosition < previousScrollPosition) {
-        //     this.props.displayLogIn()
-        // } else {
-        //     this.props.hideLogIn()
-        // }
-        
-        // previousScrollPosition = scrollPosition
-
     }
 
     render () {       
@@ -61,19 +44,20 @@ class Header extends Component {
             error = (
                 <div className="">
                     {this.props.logIn.error}
+                    <style jsx> { error }</style>
                 </div>
             )
         }
 
         return (
-            <header className="">
-                <div className="">
-                    <div className="">
-                        <Link href="/landing">
+            <header>
+                <div className="wrap">
+                    <div className="logo">
+                        <Link href="/landing"><a>
                             Chris A Project 2017
-                        </Link>
+                        </a></Link>
                     </div>
-                    <div className="">
+                    <div className="user">
 
                         <UserStatus 
                         user={this.props.user} 
@@ -90,6 +74,7 @@ class Header extends Component {
 
                     </div>
                 </div>
+                <style jsx>{styles}</style>
             </header>
         )
     }

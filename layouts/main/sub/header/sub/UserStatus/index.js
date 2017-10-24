@@ -1,8 +1,10 @@
 import React from 'react'
 
-const UserStatus = (props) => {
+import { userStatus } from './../../styles.js'
+
+export default (props) => {
     return (
-        <div className="">
+        <div className="userStatus">
             {(props.user.loggedIn) ? (
                 <div>
                     {props.user.name} <a onClick={props.logOutUser}>(Log Out)</a>
@@ -12,8 +14,7 @@ const UserStatus = (props) => {
                     Log in
                 </a>
             )}
+            <style jsx>{userStatus}</style>
         </div>
     )
 }
-
-export default UserStatus

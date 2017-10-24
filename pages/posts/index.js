@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Layout from '../../layouts/main'
 
-import Post from './sub/Post'
+import Post from './sub/post'
 
 import {
     getPosts
@@ -39,14 +40,16 @@ class Posts extends Component {
         }
 
         return (
-            <section>
-                <h1>WP posts</h1>
-                <div>
-                    {loadingNode}
-                    {errorNode}
-                    {postsNode}
-                </div>
-            </section>
+            <Layout>
+                <section>
+                    <h1>WP posts</h1>
+                    <div>
+                        {loadingNode}
+                        {errorNode}
+                        {postsNode}
+                    </div>
+                </section>
+            </Layout>
         )
     }
 }
