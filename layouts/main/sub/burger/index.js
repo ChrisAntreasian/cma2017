@@ -10,6 +10,8 @@ import {
     closeBurger
 } from './store.js'
 
+import styles from './styles'
+
 const Burger = (props) => {
 
     const burgerLinks = props.burgerLinks.map((burgerLink) => {
@@ -18,19 +20,19 @@ const Burger = (props) => {
         )
     });
 
-    let styles = {}; // remove me 
-    let burgerLinksClass = styles.navigationCollapsed
-    let burgerAction = props.openBurger
-    if (props.burgerExpanded) {
-        burgerLinksClass = styles.navigationExpanded
-        burgerAction = props.closeBurger
-    }
     return (
-        <nav className="" onClick={burgerAction}>
-            <div className="">Menu</div>
-            <div className="">
+        <nav className="burger"
+        onClick={props.burgerExpanded ? props.closeBurger : props.openBurger}>
+            <div className="overlay">Menu</div>
+            <div className="navigation burgerLinksClass">
                 {burgerLinks}
             </div>
+            <style jsx>{styles}</style>
+            <style jsx>{`
+                .navigation {
+                    margin-bottom: ${props.burgerExpanded ?  100 : -220}px;
+                }
+            `} </style>
         </nav>
     )
 }

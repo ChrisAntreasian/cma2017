@@ -1,35 +1,47 @@
 
 import React, { Component } from 'react'
+import { Provider, connect } from 'react-redux'
+
 import FlipPage from 'react-flip-page'
 import Layout from '../../layouts/main'
 
-import { connect } from 'react-redux'
-
+import store from './../../store/index'
+// import qstore from './store'
 class Quintuplapus extends Component {
+
+    // componentDidMount() {
+    // }
     render() {
-        console.log(this.props)
-        const book = this.props.quintLeaves.map((leaf, i) => {
+        const leaves = this.props.quintLeaves.map((leaf, i) => {
             return (
                 <img src={leaf.src} alt={leaf.alt} key={'leaf-' + i} />
             )
         })
+
+        let book = null;
+        // book = (
+        //     <FlipPage
+        //     orientation="horizontal"
+        //     className=""
+        //     width={707}
+        //     pageBackground="none"
+        //     uncutPages={true}
+        //     animationDuration={320}>
+        //         {leaves}
+        //     </FlipPage>
+        // )
+
         return (
-            <Layout>
-                <section>
-                    <h1>Welcome to the Quintpuapus</h1>
-                    <div className="">
-                        <FlipPage
-                        orientation="horizontal"
-                        className=""
-                        width={707}
-                        pageBackground="none"
-                        uncutPages={true}
-                        animationDuration={320}>
+            <Provider store={store}>
+                <Layout>
+                    <section>
+                        <h1>Welcome to the Quintpuapus</h1>
+                        <div className="">
                             {book}
-                        </FlipPage>
-                    </div>
-                </section>
-            </Layout>
+                        </div>
+                    </section>
+                </Layout>
+            </Provider>
         )
     }
 }

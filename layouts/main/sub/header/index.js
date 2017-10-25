@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Link from 'next/link'
 
 import UserStatus from './sub/UserStatus'
 import Dropdown from './sub/Dropdown'
-import Link from 'next/link'
 
-import styles from './styles.js'
-import { error } from './styles.js'
+import styles, { error } from './styles.js'
 
 import {
     displayLogIn,
@@ -18,11 +16,6 @@ import {
     logInUserFromStorage
 } from './store.js'
 
-const mapStateToProps = state => ({
-    user: state.header.user,
-    logIn: state.header.logIn
-})
-
 const mapDispatchToProps = dispatch => bindActionCreators({
     displayLogIn,
     hideLogIn,
@@ -30,6 +23,11 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     logOutUser,
     logInUserFromStorage
 }, dispatch)
+
+const mapStateToProps = state => ({
+    user: state.header.user,
+    logIn: state.header.logIn
+})
 
 class Header extends Component {
     previousScrollPosition = 0
@@ -79,7 +77,6 @@ class Header extends Component {
         )
     }
 }
-
 
 export default connect(
     mapStateToProps,
