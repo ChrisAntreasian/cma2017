@@ -5,8 +5,8 @@ import { Provider, connect } from 'react-redux'
 import FlipPage from 'react-flip-page'
 import Layout from '../../layouts/main'
 
-import store from './../../store/index'
-// import qstore from './store'
+import {makeStore} from './../../store/index'
+
 class Quintuplapus extends Component {
 
     // componentDidMount() {
@@ -32,7 +32,6 @@ class Quintuplapus extends Component {
         // )
 
         return (
-            <Provider store={store}>
                 <Layout>
                     <section>
                         <h1>Welcome to the Quintpuapus</h1>
@@ -41,7 +40,6 @@ class Quintuplapus extends Component {
                         </div>
                     </section>
                 </Layout>
-            </Provider>
         )
     }
 }
@@ -50,6 +48,8 @@ const mapStateToProps = state => ({
     quintLeaves: state.quint.quintLeaves
 })
 
-export default connect(
-    mapStateToProps
-)(Quintuplapus)
+export default withRedux(makeStore, (state) => ({foo: state.foo}))(Page);
+
+// export default connect(
+//     mapStateToProps
+// )(Quintuplapus)

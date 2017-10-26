@@ -14,10 +14,12 @@ const composedEnhancers = compose(
   ...enhancers
 )
 
-const store = createStore(
+export default createStore(
   rootReducer,
   initialState,
   composedEnhancers
 )
 
-export default store
+export const makeStore = (initialState, options) => {
+    return createStore(rootReducer, initialState, compose(applyMiddleware(thunk)))
+}
