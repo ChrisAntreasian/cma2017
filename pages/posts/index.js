@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Layout from '../../layouts/main'
+import withRedux from "next-redux-wrapper";
 
+import { makeStore } from '~/store'
+
+import Layout from '~/layouts/main'
 import Post from './sub/post'
 
-import {
-    getPosts
-} from './store.js'
+import { getPosts, getInitialPosts } from './store.js'
 
 class Posts extends Component {
-    componentWillMount() {
-        this.props.getPosts()
+    static getInitialProps ({store, isServer, pathname, query}) {
+
+        const posts = getInitialPosts()
+        store.dispatch(posts);
+
+        return posts.resolution.then((response) => {
+            store.dispatch({
+                type: 'posts/SET_ALL',
+                posts: response.posts
+            });
+        })
     }
 
     render() {
-
         let loadingNode = null
         if (this.props.loading) {
             loadingNode = (
@@ -60,11 +68,9 @@ const mapStateToProps = state => ({
     error: state.posts.error
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    getPosts
-}, dispatch)
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//     getPosts
+// }, dispatch)
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Posts)
+export default withRedux(makeStore, mapStateToProps)(Posts)
+

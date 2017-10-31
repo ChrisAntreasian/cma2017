@@ -1,5 +1,7 @@
-import fetchival from 'fetchival'
-import configs from './../../configs.js'
+
+import fetch from 'isomorphic-unfetch'
+
+import configs from '~/configs.js'
 
 export const SET_ALL = 'posts/SET_ALL'
 export const LOADING = 'posts/POSTS_LOADING'
@@ -36,30 +38,25 @@ export default (state = initialState, action) => {
     }
 }
 
-export const getPosts = () => {
-  return dispatch => {
-    dispatch({
-            type: LOADING
-        })
-        fetchival( configs.baseurl + '/wp/v2/posts', {
-            mode: 'cors'
-        }).get({
-            limit: 8
-        }).then( r => {
-            let postsArray = []
-            for (let post of r) {
-                postsArray.push(post)
-            }
-            dispatch({
-                type: SET_ALL,
-                posts: postsArray
-            })
-        }).catch( r => {
-            dispatch({
-                type: ERROR,
-                error: r.message
+export const getInitialPosts = () => {
+    return {
+        type: 'GET_ALL',
+        resolution: new Promise( resolution => {
+            fetch( configs.baseurl + '/wp/v2/posts', {
+                method: 'GET'
+            }).then( res => {
+                return res.json();
+            }).then( res => {
+                let postsArray = []
+                for (let post of res) {
+                    postsArray.push(post)
+                }
+                resolution({ posts: postsArray })
+            }).catch( res => {
+                resolution({
+                    error: res.message
+                })
             })
         })
-  }
+    }
 }
-
