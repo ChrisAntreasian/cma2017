@@ -1,8 +1,6 @@
 
 import React from 'react'
-import withRedux from "next-redux-wrapper";
-
-import { makeStore } from '~/store'
+import { connect } from 'react-redux'
 
 import portrait from './img/chris-a-self-portrait.png'
 import Layout from '~/layouts/main'
@@ -22,5 +20,4 @@ const Landing = () => {
     )
 }
 
-
-export default withRedux(makeStore, (state) => state)(Landing)
+export default connect()(Landing)

@@ -10,7 +10,7 @@ const initialState = {
     {
       key: 'landing',
       title: 'Landing Page',
-      href: '/landing',
+      href: '/',
       img: landingImg
     },
     {

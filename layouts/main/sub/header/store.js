@@ -116,37 +116,41 @@ export const logInUserFromStorage = () => {
     }
 }
 
-export const logInUser = (d) => {
+export const logInUser = (creds) => {
     return dispatch => {
         dispatch({
             type: LOGIN_LOADING
         })
         fetch( configs.baseurl + '/jwt-auth/v1/token', {
             method: 'POST',
-            headers: {
-                'credentials': 'include'
-            },
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                username: d.username,
-                password: d.password
+                username: creds.username,
+                password: creds.password
             })
         }).then( res => {
             return res.json()
         }).then( res => {
-            console.log(res)
+            if (!res.token) {
+                dispatch({
+                    type: LOGIN_ERROR,
+                    message: res.message
+                })
+                return
+            }
             const userData = {
                 loggedIn: true,
                 name: res.user_display_name,
                 email: res.user_email,
                 token: res.user_token
             }
-
             window.localStorage.setItem('user', JSON.stringify(userData))
-
             dispatch({
                 type: LOGIN_SUCCESS,
                 user: userData
             })
+
         }).catch( res => {
             dispatch({
                 type: LOGIN_ERROR,
@@ -155,40 +159,7 @@ export const logInUser = (d) => {
         })
     }
 }
-/*
-export const logInUser = (d) => {
-    return dispatch => {
-        dispatch({
-            type: LOGIN_LOADING
-        })
-    fetchival( configs.baseurl + '/jwt-auth/v1/token', {
-        mode: 'cors'
-    }).post({
-        username: d.username,
-        password: d.password
-    }).then( r => {
-        const userData = {
-            loggedIn: true,
-            name: r.user_display_name,
-            email: r.user_email,
-            token: r.user_token
-        }
 
-        window.localStorage.setItem('user', JSON.stringify(userData))
-
-        dispatch({
-            type: LOGIN_SUCCESS,
-            user: userData
-        })
-    }).catch( r => {
-        dispatch({
-            type: LOGIN_ERROR,
-            message: r.message
-        })
-    })
-    }
-}
-*/
 export const logOutUser = () => {
     return dispatch => {
         window.localStorage.removeItem('user')

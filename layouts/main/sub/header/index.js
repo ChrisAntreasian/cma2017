@@ -6,7 +6,7 @@ import Link from 'next/link'
 import UserStatus from './sub/UserStatus'
 import Dropdown from './sub/Dropdown'
 
-import styles, { error } from './styles.js'
+import styles, { errorStyles } from './styles.js'
 
 import {
     displayLogIn,
@@ -37,12 +37,12 @@ class Header extends Component {
     }
 
     render () {       
-        let error = null
+        let errorNode = null
         if (this.props.logIn.error) {
-            error = (
-                <div className="">
-                    {this.props.logIn.error}
-                    <style jsx> { error }</style>
+            errorNode = (
+                <div className="error">
+                    <span dangerouslySetInnerHTML={{__html: this.props.logIn.error}} />
+                    <style jsx>{ errorStyles }</style>
                 </div>
             )
         }
@@ -51,7 +51,7 @@ class Header extends Component {
             <header>
                 <div className="wrap">
                     <div className="logo">
-                        <Link href="/landing"><a>
+                        <Link href="/"><a>
                             Chris A Project 2017
                         </a></Link>
                     </div>
@@ -68,7 +68,7 @@ class Header extends Component {
                         loggedIn={this.props.user.loggedIn}
                         logIn={this.props.logIn} />
 
-                        {error}
+                        {errorNode}
 
                     </div>
                 </div>

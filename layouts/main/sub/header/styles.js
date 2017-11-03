@@ -86,7 +86,7 @@ export const form = css`
     }
 `
 
-export const error = css`
+export const errorStyles = css`
     .error {
         position: absolute;
         top: 50;

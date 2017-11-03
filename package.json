@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {
     "babel-plugin-import-static-files": "^1.0.1",
-    "fetchival": "^0.3.2",
     "html-react-parser": "^0.4.0",
     "isomorphic-unfetch": "^2.0.0",
     "next": "^4.1.3",
