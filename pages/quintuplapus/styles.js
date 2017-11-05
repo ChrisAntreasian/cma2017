@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-    .book {
+    :global(.quint-book) {
         margin: 0 auto;
     }
     .container {

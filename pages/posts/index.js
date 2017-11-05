@@ -2,24 +2,24 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import withRedux from "next-redux-wrapper";
 
-import { makeStore } from '~/store'
+import store from '~/store'
 
 import Layout from '~/layouts/main'
 import Post from './sub/post'
 
-import { getPosts, getInitialPosts } from './store.js'
+import { getInitialPosts } from './store.js'
 
 class Posts extends Component {
     static getInitialProps ({store, isServer, pathname, query}) {
 
         const posts = getInitialPosts()
-        store.dispatch(posts);
+        store.dispatch(posts)
 
         return posts.resolution.then((response) => {
             store.dispatch({
                 type: 'posts/SET_ALL',
                 posts: response.posts
-            });
+            })
         })
     }
 
@@ -68,9 +68,5 @@ const mapStateToProps = state => ({
     error: state.posts.error
 })
 
-// const mapDispatchToProps = dispatch => bindActionCreators({
-//     getPosts
-// }, dispatch)
-
-export default withRedux(makeStore, mapStateToProps)(Posts)
+export default withRedux(store, mapStateToProps)(Posts)
 

@@ -104,6 +104,7 @@ export const logInLoading = () => {
         })
     }
 }
+
 export const logInUserFromStorage = () => {
     return dispatch => {
         let userData = JSON.parse(window.localStorage.getItem('user'))

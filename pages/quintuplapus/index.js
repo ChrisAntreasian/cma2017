@@ -1,29 +1,32 @@
 
 import React, { Component } from 'react'
-import NoSSR from 'react-no-ssr';
-
+import { bindActionCreators } from 'redux'
 import withRedux from "next-redux-wrapper";
 
 import Layout from '~/layouts/main'
-import store, {makeStore} from '~/store'
-
+import store from '~/store'
+import { setClientLoaded } from './store'
 import styles from './styles'
 
-let FlipPage = (typeof window !== 'undefined') ? require('react-flip-page') : null
+let FlipPage = null;
 
 class Quintuplapus extends Component {
-    componenetDidMount() {
-        FlipPage = (FlipPage) ? FlipPage : require('react-flip-page')
+
+    componentDidMount() {
+        FlipPage = require('react-flip-page').default
+        this.props.setClientLoaded()
     }
-    render() {
+
+    initalizeFlipPage() {
         const leaves = this.props.quintLeaves.map((leaf, i) => {
             return (
                 <img src={leaf.src} alt={leaf.alt} key={'leaf-' + i} />
             )
         })
-        console.log(<FlipPage
+        return (
+            <FlipPage
             orientation="horizontal"
-            className="book"
+            className="quint-book"
             width={707}
             pageBackground="none"
             uncutPages={true}
@@ -31,18 +34,13 @@ class Quintuplapus extends Component {
                 {leaves}
             </FlipPage>
         )
-        const flipPageNode = null
-        // (FlipPage) ?
-        //     <FlipPage
-        //     orientation="horizontal"
-        //     className="book"
-        //     width={707}
-        //     pageBackground="none"
-        //     uncutPages={true}
-        //     animationDuration={320}>
-        //         {leaves}
-        //     </FlipPage>
-        // : 'loading...'
+    }
+
+    render() {  
+        let flipPageNode = 'loading...'
+        if (this.props.clientLoaded) {
+            flipPageNode = this.initalizeFlipPage()
+        }
         return (
             <Layout>
                 <section>
@@ -50,6 +48,7 @@ class Quintuplapus extends Component {
                     <div className="container">
                         {flipPageNode}
                     </div>
+                    <style jsx>{styles}</style>
                 </section>
             </Layout>
         )
@@ -57,8 +56,13 @@ class Quintuplapus extends Component {
 }
 
 const mapStateToProps = state => ({
-    quintLeaves: state.quint.quintLeaves
+    quintLeaves: state.quint.quintLeaves,
+    clientLoaded: state.quint.clientLoaded
 })
 
-export default withRedux(makeStore, mapStateToProps)(Quintuplapus)
+const mapDispatchToProps = dispatch => bindActionCreators({
+    setClientLoaded
+}, dispatch)
+
+export default withRedux(store, mapStateToProps, mapDispatchToProps)(Quintuplapus)
 

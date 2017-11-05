@@ -8,47 +8,55 @@ import leaf5 from './img/book-leaves/quintupalpus-leaf-5.jpg'
 import leaf6 from './img/book-leaves/quintupalpus-leaf-6.jpg'
 import back from './img/book-leaves/quintupalpus-leaf-bc.png'
 
+export const CLIENT_LOADED = 'quint/CLIENT_LOADED'
+
+
 const initialState = {
-  quintLeaves: [
-    {
-      alt: 'Quintpuapus demo cover',
-      src: cover
-    },
-    {
-      alt: 'Quintpuapus demo leaf 1',
-      src: leaf1
-    },
-    {
-      alt: 'Quintpuapus demo leaf 2',
-      src: leaf2
-    },
-    {
-      alt: 'Quintpuapus demo leaf 3',
-      src: leaf3
-    },
-    {
-      alt: 'Quintpuapus demo leaf 4',
-      src: leaf4
-    },
-    {
-      alt: 'Quintpuapus demo leaf 5',
-      src: leaf5
-    },
-    {
-      alt: 'Quintpuapus demo leaf 6',
-      src: leaf6
-    },
-    {
-      alt: 'Quintpuapus demo back',
-      src: back
-    }
-  ]
+    clientLoaded: false,
+    quintLeaves: [{
+        alt: 'Quintpuapus demo cover',
+        src: cover
+    }, {
+        alt: 'Quintpuapus demo leaf 1',
+        src: leaf1
+    }, {
+        alt: 'Quintpuapus demo leaf 2',
+        src: leaf2
+    }, {
+        alt: 'Quintpuapus demo leaf 3',
+        src: leaf3
+    }, {
+        alt: 'Quintpuapus demo leaf 4',
+        src: leaf4
+    }, {
+        alt: 'Quintpuapus demo leaf 5',
+        src: leaf5
+    }, {
+        alt: 'Quintpuapus demo leaf 6',
+        src: leaf6
+    }, {
+        alt: 'Quintpuapus demo back',
+        src: back
+    }]
 }
 
+
 export default (state = initialState, action) => {
-  switch (action.type) {
- 
-    default:
-      return state
-  }
+    switch (action.type) {
+        case CLIENT_LOADED:
+            return {
+                ...state,
+                clientLoaded: true
+            }
+        default:
+        return state
+    }
+}
+
+export const setClientLoaded = () => {
+    return dispatch => {
+        dispatch({
+            type: CLIENT_LOADED
+        })
+    }
 }
