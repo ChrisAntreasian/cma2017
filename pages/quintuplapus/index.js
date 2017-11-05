@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import withRedux from "next-redux-wrapper";
+import withRedux from "next-redux-wrapper"
 
 import Layout from '~/layouts/main'
 import store from '~/store'
 import { setClientLoaded } from './store'
 import styles from './styles'
 
-let FlipPage = null;
+let FlipPage = null
 
 class Quintuplapus extends Component {
 

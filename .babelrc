@@ -1,6 +1,15 @@
 {
     "presets": [
-    "next/babel",
-  ],
-    "plugins": ["import-static-files", "babel-plugin-root-import"]
+        "next/babel",
+    ],
+    "plugins": [
+        "import-static-files",
+        "babel-plugin-root-import",
+        [
+            "inline-import",
+            {
+                "extensions": [".css"]
+            }
+        ]
+    ]
 }
