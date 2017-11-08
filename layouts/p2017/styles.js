@@ -1,34 +1,41 @@
 import css from 'styled-jsx/css'
-
+import bgTransparency from 'img/transparent.png'
 export default css`
-    :global(body) {
+    body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: #052a56;
+      background: pink;
+      font-size: 16px;
     }
 
-    :global(.clear:after) {
+    .clear:after {
         content: '';
         display: block;
         clear: both;
     }
    
-    :global(.wrap) {
+    .wrap {
         width: 100%;
-        padding: 0 100px;
+        padding: 0 1.3rem;
+        background: ${bgTransparency}
         box-sizing: border-box;
+    }
+
+    .main {
+        margin: 38px auto;
+        max-width: 1170px;
     }
 
     /* wp post styles */
 
-    :global(.alignleft) {
+    .alignleft {
         float: left;
     }
-    :global(.alignright) {
+    .alignright {
         float: right;
     }
-    :global(.aligncenter) {
+    .aligncenter {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -36,7 +43,5 @@ export default css`
 `
 
 export const main = css`
-    .main {
-        margin-top: 38px;
-    }
+   
 `

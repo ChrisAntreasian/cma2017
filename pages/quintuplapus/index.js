@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import withRedux from "next-redux-wrapper"
 
-import Layout from '~/layouts/main'
+import Layout from '~/layouts/p2017'
 import store from '~/store'
 import { setClientLoaded } from './store'
 import styles from './styles'

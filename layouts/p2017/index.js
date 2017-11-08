@@ -1,10 +1,10 @@
 import React from 'react'
+import normalize from 'normalize.css'
 
 import Header from './sub/header'
 import Burger from './sub/burger'
 
-import styles, { main } from './styles'
-import normalize from 'normalize.css'
+import styles from './styles'
 
 export default (props) => (
     <div>
@@ -14,7 +14,6 @@ export default (props) => (
             <Burger />
         </main>
         <style jsx global>{normalize}</style>
-        <style jsx>{styles}</style>
-        <style jsx>{main}</style>
+        <style jsx global>{styles}</style>
     </div>
 )

@@ -4,7 +4,7 @@ import withRedux from "next-redux-wrapper";
 
 import store from '~/store'
 
-import Layout from '~/layouts/main'
+import Layout from '~/layouts/p2017'
 import Post from './sub/post'
 
 import { getInitialPosts } from './store.js'

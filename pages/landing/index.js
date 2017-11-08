@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import portrait from './img/chris-a-self-portrait.png'
-import Layout from '~/layouts/main'
+import Layout from '~/layouts/p2017'
 
 
 const Landing = () => {
