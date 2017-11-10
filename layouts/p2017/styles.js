@@ -1,12 +1,16 @@
 import css from 'styled-jsx/css'
 import bgTransparency from 'img/transparent.png'
+
 export default css`
+    html, body {
+        height: 100%;
+    }
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: pink;
       font-size: 16px;
+      background: #00cbff;
     }
 
     .clear:after {
@@ -18,15 +22,18 @@ export default css`
     .wrap {
         width: 100%;
         padding: 0 1.3rem;
-        background: ${bgTransparency}
         box-sizing: border-box;
     }
 
     .main {
-        margin: 38px auto;
+        margin: 0 auto;
         max-width: 1170px;
+        background-image: url("${bgTransparency}");
     }
 
+    .main section{
+        padding: 50px 0 100px;
+    }
     /* wp post styles */
 
     .alignleft {
