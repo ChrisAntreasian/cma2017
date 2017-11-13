@@ -7,7 +7,10 @@ import store from '~/store'
 import Layout from '~/layouts/p2017'
 import Post from './sub/post'
 
-import { getInitialPosts } from './store.js'
+import { getInitialPosts } from './store'
+
+import styles from './styles'
+import IgFeed from '~/shared/igfeed'
 
 class Posts extends Component {
     static getInitialProps ({store, isServer, pathname, query}) {
@@ -35,7 +38,7 @@ class Posts extends Component {
         if (this.props.posts) {
             postsNode = this.props.posts.map((post, i) => {
                 return (
-                    <Post {...post} key={i}/>
+                    <Post {...post} key={'wp-post' + post.id}/>
                 )
             })
         }
@@ -50,13 +53,15 @@ class Posts extends Component {
         return (
             <Layout>
                 <section>
-                    <h1>WP posts</h1>
                     <div>
+                        <h1>WP posts</h1>
                         {loadingNode}
                         {errorNode}
                         {postsNode}
                     </div>
+                    <IgFeed />
                 </section>
+                <style jsx>{styles}</style>
             </Layout>
         )
     }

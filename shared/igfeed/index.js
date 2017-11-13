@@ -8,23 +8,10 @@ import Layout from '~/layouts/p2017'
 import Post from './sub/post'
 
 import { getInitialPosts } from './store.js'
+import styles from './styles'
 
 class IgFeed extends Component {
-    // static getInitialProps ({store, isServer, pathname, query}) {
-    //     console.log('get inital props')
-    //     const posts = getInitialPosts()
-    //     store.dispatch(posts)
-
-    //     return posts.resolution.then((res) => {
-    //         console.log(res)
-    //         store.dispatch({
-    //             type: 'igfeed/SET_ALL',
-    //             posts: res.posts
-    //         })
-    //     })
-    // }
     componentDidMount() {
-        console.log('componentDidMount')
         this.props.getInitialPosts()
     }
 
@@ -37,13 +24,13 @@ class IgFeed extends Component {
         }
 
         let postsNode = null
-        // if (this.props.posts) {
-        //     postsNode = this.props.posts.map((post, i) => {
-        //         return (
-        //             <Post {...post} key={i}/>
-        //         )
-        //     })
-        // }
+        if (this.props.posts) {
+            postsNode = this.props.posts.map((post, i) => {
+                return (
+                    <Post {...post} key={'ig-post' + post.id}/>
+                )
+            })
+        }
 
         let errorNode = null
         if (this.props.error) {
@@ -60,6 +47,7 @@ class IgFeed extends Component {
                     {errorNode}
                     {postsNode}
                 </div>
+                <style jsx>{styles}</style>
             </aside>
         )
     }

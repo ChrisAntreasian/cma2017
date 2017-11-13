@@ -49,7 +49,7 @@ class Header extends Component {
 
         return (
             <header>
-                <div className="wrap">
+                <div className="container">
                     <div className="logo">
                         <Link href="/"><a>
                             Chris A Project 2017
@@ -74,6 +74,7 @@ class Header extends Component {
                 </div>
                 <style jsx>{styles}</style>
             </header>
+
         )
     }
 }

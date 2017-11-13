@@ -11,6 +11,8 @@ export default css`
       font-family: sans-serif;
       font-size: 16px;
       background: #00cbff;
+      background-image: url("${bgTransparency}");
+
     }
 
     .clear:after {
@@ -19,20 +21,28 @@ export default css`
         clear: both;
     }
    
-    .wrap {
+    main {
         width: 100%;
-        padding: 0 1.3rem;
+        padding: 30px 0 100px;
         box-sizing: border-box;
     }
-
-    .main {
-        margin: 0 auto;
+    section {
+        width: 100%;
         max-width: 1170px;
-        background-image: url("${bgTransparency}");
+        margin: 0 auto;
+        padding: 0 0.65rem;
+        position: relative;
     }
-
-    .main section{
-        padding: 50px 0 100px;
+    .wrap {
+        width: 100%;
+    }
+    .container {
+        position: relative;
+        width: 1170px;
+        margin: 0 auto;
+    }
+    .wrap:after {
+        clear: both;
     }
     /* wp post styles */
 
@@ -47,8 +57,4 @@ export default css`
         margin-left: auto;
         margin-right: auto;
     }
-`
-
-export const main = css`
-   
 `

@@ -3,23 +3,21 @@ import css from 'styled-jsx/css'
 export default css`
     header {
         width: 100%;
-        background: #1C5499;
+        margin: 0 auto;
+        padding: 0.65rem 0;
         background-image: linear-gradient(to bottom, #1C5499, #15447e);
         border-bottom: 3px solid #1f5ca7;
         color: white;
         position: fixed;
         top: 0;
+        z-index: 50;
     }
     a {
         color: white;
         cursor: pointer;
     }
     .wrap {
-        width: 100%;
-        padding: 0 100px;
-        box-sizing: border-box;
-        height: 30px;
-        line-height: 30px;
+        background: #1C5499;
     }
     .logo {
         float: left;
