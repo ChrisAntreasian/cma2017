@@ -23,9 +23,9 @@ const Landing = () => {
                     </p>
                 </div>
                 <style jsx>{styles}</style>
-                <IgFeed />
             </section>
             <Switcher />
+            <IgFeed />
         </Layout>
     )
 }

@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-    div {
+    .posts {
         width: 74.9997%;
         padding: 0 0.65rem;
     }
@@ -9,11 +9,9 @@ export default css`
 
 export const post = css`
     article {
-        margin: 0.65rem 0;
-        padding: 10px;
-        border: 1px solid black;
-        border-radius: 3px;
         width: 100%;
+        margin: 0.65rem 0;
+        border-radius: 3px;
         background: white;
     }
     article:first-of-type {

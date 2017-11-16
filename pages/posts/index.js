@@ -53,7 +53,7 @@ class Posts extends Component {
         return (
             <Layout>
                 <section>
-                    <div>
+                    <div className="posts">
                         <h1>WP posts</h1>
                         {loadingNode}
                         {errorNode}

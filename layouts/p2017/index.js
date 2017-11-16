@@ -9,7 +9,7 @@ import styles from './styles'
 export default (props) => (
     <div>
         <Header />
-        <main className="wrap">
+        <main>
             {props.children}
             <Burger />
         </main>

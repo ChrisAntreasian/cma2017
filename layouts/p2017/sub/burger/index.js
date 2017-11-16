@@ -21,19 +21,29 @@ const Burger = (props) => {
     });
 
     return (
-        <nav className="burger"
-        onClick={props.burgerExpanded ? props.closeBurger : props.openBurger}>
-            <div className="overlay">Menu</div>
-            <div className="navigation burgerLinksClass">
-                {burgerLinks}
+        <div className="wrap">
+            <div className="container">
+                <div className="burger"
+                onClick={props.burgerExpanded ? props.closeBurger : props.openBurger}>
+                    <div className="overlay">Menu</div>
+                </div>
+                <nav>
+                    {burgerLinks}
+                </nav>
             </div>
+
             <style jsx>{styles}</style>
             <style jsx>{`
-                .navigation {
+                nav {
                     margin-bottom: ${props.burgerExpanded ?  100 : -220}px;
                 }
+                @media only screen and (max-width: 31em) {
+                    nav {
+                        display: ${props.burgerExpanded ? 'block' : 'none'};
+                    }
+                }
             `} </style>
-        </nav>
+        </div>
     )
 }
 
