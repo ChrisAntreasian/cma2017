@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
+import fetch from 'isomorphic-unfetch'
 
 import store from '~/store'
 
 import Layout from '~/layouts/p2017'
 import Post from './sub/post'
 
-import { getInitialPosts } from './store'
-
 import styles from './styles'
+
 import IgFeed from '~/shared/igfeed'
 
 class Posts extends Component {
-    static getInitialProps ({store, isServer, pathname, query}) {
 
-        const posts = getInitialPosts()
+    static getInitialProps ({store}) {
+        const fetchables = require('~/fetchables')
+        const posts = fetchables.getInitalWpPosts()
         store.dispatch(posts)
 
         return posts.resolution.then((res) => {

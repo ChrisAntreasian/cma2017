@@ -122,7 +122,7 @@ export const logInUser = (creds) => {
         dispatch({
             type: LOGIN_LOADING
         })
-        fetch( configs.baseurl + '/jwt-auth/v1/token', {
+        fetch( configs.wordpress.url + '/jwt-auth/v1/token', {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
