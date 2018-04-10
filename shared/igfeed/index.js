@@ -11,11 +11,14 @@ import { getInitialPosts } from './store.js'
 import styles from './styles'
 
 class IgFeed extends Component {
-    componentDidMount() {
+    componentDidMount(store) {
+        console.log(store)
         this.props.getInitialPosts()
     }
 
     render() {
+        console.log(this.props);
+
         let loadingNode = null
         if (this.props.loading) {
             loadingNode = (
@@ -24,13 +27,13 @@ class IgFeed extends Component {
         }
 
         let postsNode = null
-        if (this.props.posts) {
-            postsNode = this.props.posts.map((post, i) => {
-                return (
-                    <Post {...post} key={'ig-post' + post.id}/>
-                )
-            })
-        }
+        // if (this.props.posts) {
+        //     postsNode = this.props.posts.map((post, i) => {
+        //         return (
+        //             <Post {...post} key={'ig-post' + post.id}/>
+        //         )
+        //     })
+        // }
 
         let errorNode = null
         if (this.props.error) {
@@ -38,7 +41,6 @@ class IgFeed extends Component {
                 <div className="posts__error">Error: {this.props.error}</div>
             )
         }
-
         return (
             <aside>
                 <h2>My Instagram</h2>
@@ -50,6 +52,8 @@ class IgFeed extends Component {
                 <style jsx>{styles}</style>
             </aside>
         )
+
+        return null
     }
 }
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -63,4 +67,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(IgFeed)
-

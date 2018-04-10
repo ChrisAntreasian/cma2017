@@ -9,13 +9,13 @@ const fetch = require('isomorphic-unfetch')
 
 // const configs = require('./configs.js')
 
-const fetchables = require('~/fetchables')
+const fetcher = require('./fetcher')
 
 app.prepare().then(() => {
     const server = express()
 
     server.get('/ig/posts', (req, res) => {
-        const posts = fetchables.getInitalIgPosts()
+        const posts = fetcher.getInitalIgPosts()
         return posts.resolution.then((res) => {
            res.send(res)
         })

@@ -1,5 +1,6 @@
 
 import fetch from 'isomorphic-unfetch'
+import fetcher from '~/fetcher'
 
 export const SET_ALL = 'igfeed/SET_ALL'
 export const LOADING = 'igfeed/LOADING'
@@ -35,33 +36,26 @@ export default (state = initialState, action) => {
     }
 }
 
-export const getInitialPosts = () => {
-    return dispatch => {
+ // export const getInitialPosts = () => async (dispatch) => {
+ //    try {
+ //        const posts = await fetcher.getInitalIgPosts();
+ //        dispatch({
+ //            type: SET_ALL,
+ //            posts: posts
+ //        })
+ //    } catch (e) {
+ //        dispatch({
+ //            type: ERROR,
+ //            error: e
+ //        })
+ //    }
+    
+export const getInitialPosts = () => async (dispatch) => {    
+    const posts = await fetcher.getInitalIgPosts();
+    return posts.resolve.then((res) => {
         dispatch({
-            type: LOADING
+            type: 'SET_ALL',
+            posts: res.posts
         })
-        fetch( 'ig/posts', {
-            method: 'GET',            
-            headers: { 'Content-Type': 'application/json' }
-        }).then( res => {
-            return res.json()
-        }).then( json => {
-            if (!json.meta || json.meta.code != 200) {
-                dispatch({
-                    type: ERROR,
-                    message: json.error_message
-                })
-                return
-            }
-            dispatch({
-                type: SET_ALL,
-                posts: json.data
-            })
-        }).catch( res => {
-            dispatch({
-                type: ERROR,
-                message: res
-            })
-        })
-    }
+    })
 }

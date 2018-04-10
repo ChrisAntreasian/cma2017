@@ -15,11 +15,11 @@ import IgFeed from '~/shared/igfeed'
 class Posts extends Component {
 
     static getInitialProps ({store}) {
-        const fetchables = require('~/fetchables')
-        const posts = fetchables.getInitalWpPosts()
+        const fetcher = require('~/fetcher')
+        const posts = fetcher.getInitalWpPosts()
         store.dispatch(posts)
 
-        return posts.resolution.then((res) => {
+        return posts.resolve.then((res) => {
             store.dispatch({
                 type: 'posts/SET_ALL',
                 posts: res.posts
@@ -36,6 +36,7 @@ class Posts extends Component {
         }
 
         let postsNode = null
+        
         if (this.props.posts) {
             postsNode = this.props.posts.map((post, i) => {
                 return (
@@ -75,4 +76,3 @@ const mapStateToProps = state => ({
 })
 
 export default withRedux(store, mapStateToProps)(Posts)
-
