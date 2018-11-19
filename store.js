@@ -6,7 +6,7 @@ import quint from '~/pages/quintuplapus/store.js'
 
 import header from '~/layouts/p2017/sub/header/store.js'
 import burger from '~/layouts/p2017/sub/burger/store.js'
-import igfeed from '~/shared/igfeed/store.js'
+import fbSidebar from '~/shared/fbSidebar/store.js'
 
 const rootReducer = combineReducers({
     // pages
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
     // submodules
     header,
     burger,
-    igfeed
+    fbSidebar
 })
 
 const initialState = {}

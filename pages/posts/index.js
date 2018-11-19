@@ -10,7 +10,7 @@ import Post from './sub/post'
 
 import styles from './styles'
 
-import IgFeed from '~/shared/igfeed'
+import FBSidebar from '~/shared/fbSidebar'
 
 class Posts extends Component {
 
@@ -20,6 +20,7 @@ class Posts extends Component {
         store.dispatch(posts)
 
         return posts.resolve.then((res) => {
+            console.log(res)
             store.dispatch({
                 type: 'posts/SET_ALL',
                 posts: res.posts
@@ -36,7 +37,7 @@ class Posts extends Component {
         }
 
         let postsNode = null
-        
+
         if (this.props.posts) {
             postsNode = this.props.posts.map((post, i) => {
                 return (
@@ -61,7 +62,7 @@ class Posts extends Component {
                         {errorNode}
                         {postsNode}
                     </div>
-                    <IgFeed />
+                    <FBSidebar />
                 </section>
                 <style jsx>{styles}</style>
             </Layout>

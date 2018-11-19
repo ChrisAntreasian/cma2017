@@ -7,29 +7,30 @@ const handle = app.getRequestHandler()
 
 const fetch = require('isomorphic-unfetch')
 
-// const configs = require('./configs.js')
+const configs = require('./configs.js')
 
 const fetcher = require('./fetcher')
 
 app.prepare().then(() => {
     const server = express()
 
-    server.get('/ig/posts', (req, res) => {
-        const posts = fetcher.getInitalIgPosts()
+    server.get('/wp/posts', (req, res) => {
+        fetch( configs.wp.url + '/wp/v2/posts', {
+            method: 'GET'
+        }).then( posts => {
+            return posts.json()
+        }).then( posts => {
+            res.send(posts)
+        }).catch( res => {
+            console.log(res)
+        })
+    })
+    server.get('/fb/posts', (req, res) => {
+        const posts = fetcher.getFBPosts()
+        console.log(posts)
         return posts.resolution.then((res) => {
            res.send(res)
         })
-        // fetch( configs.ig.url + '/v1/users/' + configs.ig.userId + '/media/recent?access_token=' + configs.ig.token, {
-        //     method: 'GET',
-        //     credentials: 'include',
-        //     headers: { 'Content-Type': 'application/json' }
-        // }).then( posts => {
-        //     return posts.json()
-        // }).then( posts => {
-        //     res.send(posts)
-        // }).catch( posts => {
-        //     res.json(posts)
-        // })
     })
 
     server.get('*', (req, res) => {

@@ -6,7 +6,7 @@ import portrait from './img/chris-a-self-portrait.png'
 import Layout from '~/layouts/p2017'
 import styles from './styles'
 
-import IgFeed from '~/shared/igfeed'
+import fbSidebar from '~/shared/fbSidebar'
 
 import Switcher from './sub/switcher'
 const Landing = () => {
@@ -25,7 +25,7 @@ const Landing = () => {
                 <style jsx>{styles}</style>
             </section>
             <Switcher />
-            <IgFeed />
+            <fbSidebar />
         </Layout>
     )
 }
