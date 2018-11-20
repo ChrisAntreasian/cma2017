@@ -22,14 +22,18 @@ app.prepare().then(() => {
         }).then( posts => {
             res.send(posts)
         }).catch( res => {
-            console.log(res)
+            console.log('e:',res)
         })
     })
     server.get('/fb/posts', (req, res) => {
-        const posts = fetcher.getFBPosts()
-        console.log(posts)
-        return posts.resolution.then((res) => {
-           res.send(res)
+        fetch( configs.fb.url + '/posts?access_token=' + configs.fb.token + '&fields=id,picture,type,message,caption', {
+            method: 'GET'
+        }).then( posts => {
+            return posts.json()
+        }).then( posts => {
+            res.send(posts)
+        }).catch( res => {
+            console.log('e:', res)
         })
     })
 
