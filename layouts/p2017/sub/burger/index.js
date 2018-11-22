@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import BurgerLink from './sub/burgerLink'
+import BurgerLayer from './sub/burgerLayer'
 
 import {
     openBurger,
@@ -16,16 +17,25 @@ const Burger = (props) => {
 
     const burgerLinks = props.burgerLinks.map((burgerLink) => {
         return (
-            <BurgerLink {...burgerLink} key={burgerLink.key}/> 
+            <BurgerLink {...burgerLink} key={burgerLink.key}/>
         )
-    });
+    })
+
+    const burgerLayers = props.burgerLayers.map((burgerImg, i) => {
+        return (
+            <BurgerLayer key={'burger-img-' + i}
+            src={burgerImg}
+            burgerExpanded={props.burgerExpanded}
+            index={i}/>
+        )
+    })
 
     return (
         <div className="wrap">
             <div className="container">
                 <div className="burger"
                 onClick={props.burgerExpanded ? props.closeBurger : props.openBurger}>
-                    <div className="overlay">Menu</div>
+                    {burgerLayers}
                 </div>
                 <nav>
                     {burgerLinks}
@@ -49,7 +59,8 @@ const Burger = (props) => {
 
 const mapStateToProps = state => ({
     burgerExpanded: state.burger.burgerExpanded,
-    burgerLinks: state.burger.burgerLinks
+    burgerLinks: state.burger.burgerLinks,
+    burgerLayers: state.burger.burgerLayers
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

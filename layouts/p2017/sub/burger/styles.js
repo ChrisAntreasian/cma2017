@@ -1,3 +1,4 @@
+
 import css from 'styled-jsx/css'
 
 export default css`
@@ -75,5 +76,17 @@ export const burgerLink = css`
             height: auto;
             margin-left: 20%;
         }
+    }
+`
+
+export const burgerLayer = css`
+    .layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    img {
+        width: 100%;
     }
 `

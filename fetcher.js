@@ -19,8 +19,8 @@ module.exports = {
                         postsArray.push(post)
                     }
                     resolve({ posts: postsArray })
-                }).catch( res => {
-                    console.log('e:', res)
+                }).catch( error => {
+                    console.log('e:', error)
                 })
             })
         }
@@ -36,8 +36,8 @@ module.exports = {
                     return posts.json()
                 }).then( posts => {
                     resolve({ posts: posts })
-                }).catch( res => {
-                    console.log('e:', res)
+                }).catch( error => {
+                    console.log('e:', error)
                 })
             })
         }
