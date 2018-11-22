@@ -37,26 +37,3 @@ export default (state = initialState, action) => {
             return state
     }
 }
-
-export const getInitialPosts = () => {
-    return {
-        type: 'GET_ALL',
-        resolution: new Promise( resolution => {
-            fetch( configs.baseurl + '/wp/v2/posts', {
-                method: 'GET'
-            }).then( res => {
-                return res.json();
-            }).then( res => {
-                let postsArray = []
-                for (let post of res) {
-                    postsArray.push(post)
-                }
-                resolution({ posts: postsArray })
-            }).catch( res => {
-                resolution({
-                    error: res.message
-                })
-            })
-        })
-    }
-}

@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
+import fetch from 'isomorphic-unfetch'
 
 import store from '~/store'
 
 import Layout from '~/layouts/p2017'
 import Post from './sub/post'
 
-import { getInitialPosts } from './store'
-
 import styles from './styles'
-import IgFeed from '~/shared/igfeed'
+
+import FBSidebar from '~/shared/fbSidebar'
 
 class Posts extends Component {
-    static getInitialProps ({store, isServer, pathname, query}) {
 
-        const posts = getInitialPosts()
+    static getInitialProps ({store}) {
+        const fetcher = require('~/fetcher')
+        const posts = fetcher.getInitalWpPosts()
         store.dispatch(posts)
 
-        return posts.resolution.then((res) => {
+        return posts.resolve.then((res) => {
+            console.log(res)
             store.dispatch({
                 type: 'posts/SET_ALL',
                 posts: res.posts
@@ -35,6 +37,7 @@ class Posts extends Component {
         }
 
         let postsNode = null
+
         if (this.props.posts) {
             postsNode = this.props.posts.map((post, i) => {
                 return (
@@ -59,7 +62,7 @@ class Posts extends Component {
                         {errorNode}
                         {postsNode}
                     </div>
-                    <IgFeed />
+                    <FBSidebar />
                 </section>
                 <style jsx>{styles}</style>
             </Layout>
@@ -74,4 +77,3 @@ const mapStateToProps = state => ({
 })
 
 export default withRedux(store, mapStateToProps)(Posts)
-

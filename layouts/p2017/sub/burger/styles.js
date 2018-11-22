@@ -77,3 +77,15 @@ export const burgerLink = css`
         }
     }
 `
+
+export const burgerLayer = css`
+    .layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+    }
+`

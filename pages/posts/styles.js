@@ -14,6 +14,9 @@ export const post = css`
         border-radius: 3px;
         background: white;
     }
+    article img {
+        max-width: 100%;
+    }
     article:first-of-type {
         margin-top: 0;
     }
