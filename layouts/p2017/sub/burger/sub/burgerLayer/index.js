@@ -9,9 +9,16 @@ export default (props) => {
             <style jsx>{`
                 .layer {
                     margin-bottom: ${
-                        props.burgerExpanded != 0
-                        ?  10 * props.index : 0
+                        props.burgerExpanded ?  10 * props.index : 0
                     }px;
+                }
+                @media only screen and (max-width: 31em) {
+                    .layer {
+                        margin-bottom: 0;
+                        margin-top: ${
+                            props.burgerExpanded ?  10 * props.negativeIndex : 0
+                        }px;
+                    }
                 }
             `}</style>
         </div>

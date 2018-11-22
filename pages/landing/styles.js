@@ -21,6 +21,7 @@ export default css`
     }
     .welcome {
         width: 41.66665%
+        padding: 1.3rem;
     }
     @media only screen and (max-width: 54em) {
          section {

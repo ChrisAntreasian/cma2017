@@ -10,7 +10,7 @@ export default css`
       padding: 0;
       font-family: sans-serif;
       font-size: 16px;
-      background: #00cbff;
+      line-height: 1.6rem;
       background-image: url("${bgTransparency}");
 
     }
@@ -29,7 +29,7 @@ export default css`
         display: block;
         clear: both;
     }
-   
+
     main {
         width: 100%;
         padding: 2.6rem 0 0;
@@ -39,6 +39,7 @@ export default css`
         max-width: 1170px;
         margin: 0 auto;
         position: relative;
+        display: flex;
     }
     section:after {
         content: '';
@@ -65,13 +66,26 @@ export default css`
 
     .alignleft {
         float: left;
+        margin: 0 1em 1em 0;
     }
     .alignright {
         float: right;
+        margin: 0 0 1em 1em;
     }
     .aligncenter {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    .alignleft,
+    .alignright,
+    .aligncenter {
+        max-width: 100%;
+        height: auto;
+    }
+    @media only screen and (max-width: 31em) {
+        section {
+            flex-direction: column;
+        }
     }
 `

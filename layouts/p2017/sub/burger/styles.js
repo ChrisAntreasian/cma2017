@@ -7,6 +7,7 @@ export default css`
         left: 0;
         width: 6.5rem;
         height: 6.5rem;
+        z-index: 502;
     }
     .overlay {
         content: '';
@@ -41,8 +42,8 @@ export default css`
         .burger{
             width: 3rem;
             height: 3rem;
-            top: 0;
-            right: 0;
+            top: 0.65rem;
+            right: 0.65rem;
             left: auto;
             bottom: auto;
         }
@@ -87,5 +88,13 @@ export const burgerLayer = css`
     }
     img {
         width: 100%;
+    }
+    @media only screen and (max-width: 31em) {
+        .layer {
+            top: 0;
+            right: 0;
+            left: auto;
+            bottom: auto;
+        }
     }
 `

@@ -22,11 +22,13 @@ const Burger = (props) => {
     })
 
     const burgerLayers = props.burgerLayers.map((burgerImg, i) => {
+        let negativeIndex = props.burgerLayers.length - i;
         return (
             <BurgerLayer key={'burger-img-' + i}
             src={burgerImg}
             burgerExpanded={props.burgerExpanded}
-            index={i}/>
+            index={i}
+            negativeIndex={negativeIndex}/>
         )
     })
 
