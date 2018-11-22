@@ -1,4 +1,3 @@
-
 import quintImg from './img/quint.jpg'
 import landingImg from './img/landing.jpg'
 
