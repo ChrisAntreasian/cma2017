@@ -26,6 +26,23 @@ module.exports = {
         }
     },
 
+    getResume: function() {
+        return {
+            type: 'landing/SET_RESUME',
+            resolve: new Promise( resolve => {
+                fetch(baseUrl + '/wp/resume', {
+                    method: 'GET'
+                }).then( resume => {
+                    return resume.json()
+                }).then( resume => {
+                    resolve({ resume: resume })
+                }).catch( error => {
+                    console.log('e:', error)
+                })
+            })
+        }
+    },
+
     getFBPosts: function() {
         return {
             type: 'fb/SET_FB_POSTS',

@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 
 import posts from '~/pages/posts/store.js'
 import quint from '~/pages/quintuplapus/store.js'
+import landing from '~/pages/landing/store.js'
 
 import header from '~/layouts/p2017/sub/header/store.js'
 import burger from '~/layouts/p2017/sub/burger/store.js'
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     // pages
     posts,
     quint,
+    landing,
     // submodules
     header,
     burger,

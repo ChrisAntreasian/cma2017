@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
-import fetch from 'isomorphic-unfetch'
 
 import store from '~/store'
 
@@ -20,7 +18,6 @@ class Posts extends Component {
         store.dispatch(posts)
 
         return posts.resolve.then((res) => {
-            console.log(res)
             store.dispatch({
                 type: 'posts/SET_ALL',
                 posts: res.posts

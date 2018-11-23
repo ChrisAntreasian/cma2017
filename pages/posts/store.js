@@ -1,8 +1,3 @@
-
-import fetch from 'isomorphic-unfetch'
-
-import configs from '~/configs.js'
-
 export const SET_ALL = 'posts/SET_ALL'
 export const LOADING = 'posts/POSTS_LOADING'
 export const ERROR = 'posts/ERROR'

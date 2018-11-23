@@ -69,7 +69,7 @@ export const switcher = css`
     article {
         background: white;
         min-height: 16.45rem;
-        padding: 0.65rem;
+        padding: 1.3rem;
     }
 
     @media only screen and (max-width: 31em) {

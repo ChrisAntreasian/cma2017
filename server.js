@@ -11,11 +11,29 @@ const configs = require('./configs.js')
 
 const fetcher = require('./fetcher')
 
+const { parse } = require('url')
+
+
 app.prepare().then(() => {
     const server = express()
 
+    server.get('/', (req, res) => {
+      return app.render(req, res, '/landing', req.query)
+    })
+
     server.get('/wp/posts', (req, res) => {
         fetch( configs.wp.url + '/wp/v2/posts', {
+            method: 'GET'
+        }).then( posts => {
+            return posts.json()
+        }).then( posts => {
+            res.send(posts)
+        }).catch( res => {
+            console.log('e:',res)
+        })
+    })
+    server.get('/wp/resume', (req, res) => {
+        fetch( configs.wp.url + '/wp/v2/posts/' + configs.wp.resumeId, {
             method: 'GET'
         }).then( posts => {
             return posts.json()
