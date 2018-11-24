@@ -36,7 +36,7 @@ class Header extends Component {
         this.props.logInUserFromStorage()
     }
 
-    render () {       
+    render () {
         let errorNode = null
         if (this.props.logIn.error) {
             errorNode = (
@@ -56,9 +56,13 @@ class Header extends Component {
                         </a></Link>
                     </div>
                     <div className="user">
+                        { /*
 
-                        <UserStatus 
-                        user={this.props.user} 
+                        // See if this makes sense to reintrduce later //
+
+
+                        <UserStatus
+                        user={this.props.user}
                         displayLogIn={this.props.displayLogIn}
                         logOutUser={this.props.logOutUser}/>
 
@@ -69,7 +73,7 @@ class Header extends Component {
                         logIn={this.props.logIn} />
 
                         {errorNode}
-
+                        */}
                     </div>
                 </div>
                 <style jsx>{styles}</style>

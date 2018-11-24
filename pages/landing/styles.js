@@ -3,14 +3,17 @@ import portrait from './img/chris-a-self-portrait.png'
 
 export default css`
     section {
+        display: flex;
+        justify-content: space-between;
         position: relative;
-        height: 29.5rem;
+        min-height: 29.5rem;
+
     }
-    section:after {
+    .portrait {
         content:'';
         display: block;
         position: absolute;
-        top: 0;
+        bottom: 0;
         width: 100%;
         height: 29.5rem;
         background-image: url("${portrait}");
@@ -19,20 +22,20 @@ export default css`
         background-size: 500px auto;
         z-index: -1;
     }
-    .welcome {
+    article {
         width: 41.66665%
         padding: 1.3rem;
     }
     @media only screen and (max-width: 54em) {
          section {
             height: auto;
+            flex-direction: column;
          }
-         section:after {
+         .portrait {
             content:'';
-            display: block;
-            position: relative;
-            top: 0;
-            width: 100%;
+            position: initial;
+            order: 2;
+            width: 74.99997%;
             height: 29.5rem;
             background-image: url("${portrait}");
             background-position-x: center;
@@ -40,13 +43,20 @@ export default css`
             background-size: 500px auto;
             z-index: -1;
          }
-         .welcome {
+         article {
             width: 74.99997%
         }
     }
 
     @media only screen and (max-width: 31em) {
-        .welcome {
+        section {
+            flex-direction: column;
+        }
+        .portrait {
+            width: 100%;
+            order: 3;
+        }
+        article {
             width: 100%
         }
         h1 {
@@ -71,7 +81,6 @@ export const switcher = css`
         min-height: 16.45rem;
         padding: 1.3rem;
     }
-
     @media only screen and (max-width: 31em) {
         .switcher {
             width: 100%;
