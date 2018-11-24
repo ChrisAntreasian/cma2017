@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import store from './store'
 import {
-    updateForm,
+    updateInput,
     submitForm
 } from './store'
 
@@ -13,7 +13,11 @@ import styles from './styles'
 const ContactForm = (props) => {
     const handleChange = (e) => {
         let emailDetails = {}
-        emailDetails[e.target.name] = e.target.value
+        emailDetails = {
+            name: e.target.name,
+            value: e.target.value
+        }
+        props.updateInput(emailDetails)
     }
     let errorNode = null
     if (props.error) {
@@ -31,22 +35,21 @@ const ContactForm = (props) => {
             </div>
         )
     }
-    console.log(props)
     return (
         <form onSubmit={e => props.submitForm(e)}>
             {successNode}
             {errorNode}
-            <input name="email" type="email" onChange={handleChange} placeholder="email" />
-            <input name="subject" type="text" onChange={handleChange} placeholder="subject" />
-            <textarea name="body" onChange={handleChange} placeholder="body"></textarea>
-            <input name="name" type="text" placeholder="name" onChange={handleChange} />
+            <input name="email" value={props.email} type="email" onChange={handleChange} placeholder="email" />
+            <input name="subject" value={props.subject} type="text" onChange={handleChange} placeholder="subject" />
+            <textarea name="body" value={props.body} onChange={handleChange} placeholder="body"></textarea>
+            <input name="name" value={props.name} type="text" placeholder="name" onChange={handleChange} />
             <button type="submit">{(props.loading) ? '...loading': 'Contact Me'}</button>
             <style jsx>{styles}</style>
         </form>
     )
 }
 const mapDispatchToProps = dispatch => bindActionCreators({
-    updateForm,
+    updateInput,
     submitForm
 }, dispatch)
 
