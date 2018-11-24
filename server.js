@@ -54,7 +54,9 @@ app.prepare().then(() => {
             console.log('e:', res)
         })
     })
-
+    server.post('/contact', (req, res)> {
+        console.log('server hit for mail method')
+    })
     server.get('*', (req, res) => {
         return handle(req, res)
     })

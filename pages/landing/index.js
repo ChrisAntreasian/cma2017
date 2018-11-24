@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import withRedux from 'next-redux-wrapper'
-
-import portrait from './img/chris-a-self-portrait.png'
-import Layout from '~/layouts/p2017'
-import styles from './styles'
+import HTMLParser from 'html-react-parser'
+import { bindActionCreators } from 'redux'
 
 import store from '~/store'
+import Layout from '~/layouts/p2017'
 
 import FbSidebar from '~/shared/fbSidebar'
 
-import Switcher from './sub/switcher'
+import { switchContent } from './store'
+import styles from './styles'
+import { switcher } from './styles'
+import portrait from './img/chris-a-self-portrait.png'
+
+import Contact from './sub/contact'
 
 class Landing extends Component {
 
@@ -28,6 +32,10 @@ class Landing extends Component {
     }
 
     render() {
+        let contentInViewNode = HTMLParser(this.props.resume);
+        if (this.props.inView == 'contact') {
+             contentInViewNode = <Contact />;
+        }
         return (
             <Layout>
                 <section>
@@ -44,7 +52,19 @@ class Landing extends Component {
                     <FbSidebar />
                     <style jsx>{styles}</style>
                 </section>
-                <Switcher resume={this.props.resume} inView={this.props.inView}/>
+
+                <div className="wrap">
+                    <section>
+                        <nav>
+                            <a onClick={() => {this.props.switchContent('resume')}}>Resume</a>
+                            <a onClick={() => {this.props.switchContent('contact')}}>Contact</a>
+                        </nav>
+                        <article>
+                            {contentInViewNode}
+                        </article>
+                    </section>
+                    <style jsx>{switcher}</style>
+                </div>
             </Layout>
         )
     }
@@ -55,4 +75,8 @@ const mapStateToProps = state => ({
     inView: state.landing.inView
 })
 
-export default withRedux(store, mapStateToProps)(Landing)
+const mapDispatchToProps = dispatch => bindActionCreators({
+    switchContent
+}, dispatch)
+
+export default withRedux(store, mapStateToProps, mapDispatchToProps)(Landing)

@@ -63,7 +63,6 @@ export default css`
             text-align: center;
         }
     }
-
 `
 
 export const switcher = css`
@@ -71,21 +70,30 @@ export const switcher = css`
         padding: 1.3rem 0;
         background-image: linear-gradient(to bottom, #1C5499, #15447e);
     }
-    .switcher {
+    section {
         width: 58.33332%;
-        padding: 0 0.65rem;
         margin-left: 16.66665%;
+        display: flex;
+        flex-direction: column;
     }
     article {
+        padding: 0 0.65rem;
         background: white;
         min-height: 16.45rem;
         padding: 1.3rem;
     }
     @media only screen and (max-width: 31em) {
-        .switcher {
+        section {
             width: 100%;
             padding: 0 0.65rem;
             margin-left: 0;
         }
+    }
+    nav {
+        color: white;
+    }
+    a {
+        margin: 0 1.3rem 1.3rem 0;
+        cursor: pointer;
     }
 `

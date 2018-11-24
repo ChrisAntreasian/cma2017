@@ -9,7 +9,7 @@ import BurgerLayer from './sub/burgerLayer'
 import {
     openBurger,
     closeBurger
-} from './store.js'
+} from './store'
 
 import styles from './styles'
 

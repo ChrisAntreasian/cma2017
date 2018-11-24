@@ -58,5 +58,26 @@ module.exports = {
                 })
             })
         }
+    },
+    sendContactMail: function(data) {
+        return {
+            type: 'contacty/SENT',
+            resolve: new Promise( resolve => {
+                fetch(baseUrl + '/contact', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                       'Content-Type': 'application/json'
+                    }
+                }).then( res => {
+                    return posts.json()
+                }).then( res => {
+                    resolve({ posts: posts })
+                }).catch( error => {
+                    console.log('e:', error)
+                })
+            })
+        }
+
     }
 }
