@@ -1,22 +1,22 @@
-const express = require('express')
 const next = require('next')
 
+const express = require('express')
+const bodyParser = require('body-parser')
+const fetch = require('isomorphic-unfetch')
 const dev = process.env.NODE_ENV !== 'production'
+const configs = require('./configs.js')
+const email = require('./email.js')
+
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const fetch = require('isomorphic-unfetch')
-
-const configs = require('./configs.js')
-
-const fetcher = require('./fetcher')
 
 const { parse } = require('url')
 
 
 app.prepare().then(() => {
     const server = express()
-
+    server.use(bodyParser.json())
     server.get('/', (req, res) => {
       return app.render(req, res, '/landing', req.query)
     })
@@ -28,8 +28,8 @@ app.prepare().then(() => {
             return posts.json()
         }).then( posts => {
             res.send(posts)
-        }).catch( res => {
-            console.log('e:',res)
+        }).catch( error => {
+            console.log('e:', error)
         })
     })
     server.get('/wp/resume', (req, res) => {
@@ -39,8 +39,8 @@ app.prepare().then(() => {
             return posts.json()
         }).then( posts => {
             res.send(posts)
-        }).catch( res => {
-            console.log('e:',res)
+        }).catch( error => {
+            console.log('e:',error)
         })
     })
     server.get('/fb/posts', (req, res) => {
@@ -50,13 +50,27 @@ app.prepare().then(() => {
             return posts.json()
         }).then( posts => {
             res.send(posts)
-        }).catch( res => {
-            console.log('e:', res)
+        }).catch( error => {
+            console.log('e:', error)
         })
     })
-    server.post('/contact', (req, res)> {
-        console.log('server hit for mail method')
+    server.post('/contact', (req, res) => {
+        email({
+            subject: req.body.subject,
+            body: req.body.body,
+            name: req.body.name,
+            address: req.body.address
+        }).then( response => {
+            if (response.error) {
+                console.log('e:', response.error.message)
+            }
+            res.send(response)
+
+        }).catch( error => {
+            console.log('e', error)
+        })
     })
+
     server.get('*', (req, res) => {
         return handle(req, res)
     })

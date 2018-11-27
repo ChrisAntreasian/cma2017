@@ -59,6 +59,7 @@ const mapStateToProps = state => ({
     body: state.contact.body,
     name: state.contact.name,
     error: state.contact.error,
+    success: state.contact.success,
     loading: state.contact.loading
 })
 

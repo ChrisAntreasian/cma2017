@@ -61,18 +61,19 @@ module.exports = {
     },
     sendContactMail: function(data) {
         return {
-            type: 'contacty/SENT',
+            type: 'contact/SENT',
             resolve: new Promise( resolve => {
                 fetch(baseUrl + '/contact', {
                     method: 'POST',
-                    body: JSON.stringify(data),
                     headers: {
-                       'Content-Type': 'application/json'
-                    }
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
                 }).then( res => {
-                    return posts.json()
+                    return res.json()
                 }).then( res => {
-                    resolve({ posts: posts })
+                    resolve({ response: res})
                 }).catch( error => {
                     console.log('e:', error)
                 })

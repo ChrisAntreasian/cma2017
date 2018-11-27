@@ -13,7 +13,7 @@ export default css`
         padding: 0.65rem;
     }
     button {
-        width:10rem;
+        width: 10rem;
         padding: 0.65rem;
 
     }

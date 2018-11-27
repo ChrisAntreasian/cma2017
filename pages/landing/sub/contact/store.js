@@ -31,13 +31,15 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 error: action.message,
-                success: null
+                success: null,
+                loading: false
             }
         case SET_SUCCESS:
             return {
                 ...state,
                 success: action.message,
-                error: null
+                error: null,
+                loading: false
             }
         default:
             return state
@@ -45,7 +47,6 @@ export default (state = initialState, action) => {
 }
 
 export const updateInput = (field) => {
-    console.log('form is bing controlledf', field)
     return dispatch => {
         dispatch({
             type: UPDATE_INPUT,
@@ -58,16 +59,13 @@ export const updateInput = (field) => {
 }
 export const submitForm = (e) => {
     e.preventDefault()
-    console.log('submit form', e)
     return (dispatch, getState)=> {
         const state = getState()
-        console.log('state', state.contact)
         dispatch({
             type: SET_LOADING,
             value: true
         })
         if (!state.contact.email || !state.contact.subject || !state.contact.body || !state.contact.name) {
-            console.log('missing fields')
             dispatch({
                 type: SET_ERROR,
                 message: 'Enter all of the required fields.'
@@ -82,31 +80,28 @@ export const submitForm = (e) => {
             })
             return
         }
-        console.log('sending promise')
-        const sendContactMail = async () => {
-            const postsRequest = await fetcher.sendContactMail({
-                email: state.contact.email,
+        const sendContactEmail = async () => {
+            const sendEmail = await fetcher.sendContactMail({
+                address: state.contact.email,
                 subject: state.contact.subject,
                 body: state.contact.body,
                 name: state.contact.name
             })
-            return postsRequest.resolve.then((res) => {
-                console.log('attempting to resolve posts')
+            return sendEmail.resolve.then((res) => {
                 if (res.error) {
                     dispatch({
                         type: SET_ERROR,
-                        message: res.error
+                        message: res.error.message
                     })
                     return
                 }
-                console.log('failed resolve posts')
 
                 dispatch({
                     type: SET_SUCCESS,
-                    message: res.posts.data
+                    message: 'Thanks for reaching out'
                 })
             })
         }
-        sendContactMail()
+        sendContactEmail()
     }
 }

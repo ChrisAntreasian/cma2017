@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-unfetch'
 
-import configs from '~/configs.js'
-
 export const DISPLAY_LOGIN = 'burger/DISPLAY_LOGIN'
 export const HIDE_LOGIN = 'burger/HIDE_LOGIN'
 export const LOGIN_SUCCESS = 'burger/LOGIN_SUCCESS'
@@ -122,7 +120,7 @@ export const logInUser = (creds) => {
         dispatch({
             type: LOGIN_LOADING
         })
-        fetch( configs.wordpress.url + '/jwt-auth/v1/token', {
+        fetch( '/jwt-auth/v1/token', {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

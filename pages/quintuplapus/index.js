@@ -36,7 +36,7 @@ class Quintuplapus extends Component {
         )
     }
 
-    render() {  
+    render() {
         let flipPageNode = 'loading...'
         if (this.props.clientLoaded) {
             flipPageNode = this.initalizeFlipPage()
@@ -65,4 +65,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default withRedux(store, mapStateToProps, mapDispatchToProps)(Quintuplapus)
-
