@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import withRedux from "next-redux-wrapper"
@@ -9,7 +8,6 @@ import { setClientLoaded } from './store'
 import styles from './styles'
 
 let FlipPage = null
-
 class Quintuplapus extends Component {
 
     componentDidMount() {
@@ -23,31 +21,77 @@ class Quintuplapus extends Component {
                 <img src={leaf.src} alt={leaf.alt} key={'leaf-' + i} />
             )
         })
+        /*
+        
+        {
+  "responsive": true,
+  "orientation": "horizontal",
+  "animationDuration": 200,
+  "treshold": 10,
+  "maxAngle": 45,
+  "maskOpacity": 0.4,
+  "perspective": "130em",
+  "pageBackground": "#fff",
+  "firstComponent": null,
+  "lastComponent": null,
+  "showHint": false,
+  "showSwipeHint": false,
+  "showTouchHint": false,
+  "uncutPages": false,
+  "style": {},
+  "height": 480,
+  "width": 320,
+  "onPageChange": "[function onPageChange]",
+  "className": "",
+  "flipOnLeave": false,
+  "loopForever": false,
+  "flipOnTouch": false,
+  "flipOnTouchZone": 10,
+  "disableSwipe": false
+}
+*/
         return (
             <FlipPage
+            responsive={false}
             orientation="horizontal"
             className="quint-book"
-            width={707}
+            width={770}
             pageBackground="none"
-            uncutPages={true}
-            animationDuration={320}>
+            uncutPages={false}
+            animationDuration={320}
+            flipOnTouch={true}
+            flipOnTouchZone={10}
+            showHint={true}
+            onPageChange={(e) => {
+                console.log('page changed',e)
+            }}
+            onStartPageChange={(e) => {
+                console.log('start page changed', e)
+            }}
+            onStopSwiping={(e) => {
+                console.log('onStopSwiping', e)
+            }}
+            onStartSwiping={(e) => {
+                console.log('on start swiping',e)
+            }}
+            >
                 {leaves}
             </FlipPage>
         )
     }
 
-    render() {
+    render() {  
         let flipPageNode = 'loading...'
         if (this.props.clientLoaded) {
             flipPageNode = this.initalizeFlipPage()
         }
+        console.log('page rendered')
         return (
             <Layout>
                 <section>
-                    <h1>Welcome to the Quintpuapus</h1>
-                    <div className="container">
+                    <article>
                         {flipPageNode}
-                    </div>
+                    </article>
                     <style jsx>{styles}</style>
                 </section>
             </Layout>
