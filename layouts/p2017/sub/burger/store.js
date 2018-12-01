@@ -4,7 +4,7 @@ import landingImg from './img/landing.jpg'
 const burgerLinks =  [{
     key: 'landing',
     title: 'Landing Page',
-    href: '/',
+    href: '/landing',
     img: landingImg
 }, {
     key: 'quint',
@@ -29,18 +29,38 @@ import onion from './img/burger/onion.svg'
 import pickles from './img/burger/pickles.svg'
 import bunTop from './img/burger/bun-top.svg'
 
-const burgerLayers = [
-    bunBottom,
-    burger,
-    cheeseBottom,
-    cheeseTop,
-    bacon,
-    lettuce,
-    tomato,
-    onion,
-    pickles,
-    bunTop
-]
+const burgerLayers = [{
+    src: bunBottom,
+    name: 'bunBottom'
+}, {
+    src: burger,
+    name: 'burger'
+}, {
+    src: cheeseBottom,
+    name: 'cheeseBottom'
+}, {
+    src: cheeseTop,
+    name: 'cheeseTop'
+}, {
+    src: bacon,
+    name: 'bacon'
+}, {
+    src: lettuce,
+    name: 'lettuce'
+}, {
+    src: tomato,
+    name: 'tomato'
+}, {
+    src: onion,
+    name: 'onion'
+}, {
+    src: pickles,
+    name: 'pickles'
+}, {
+    src: bunTop,
+    name: 'bunTop'
+}]
+
 
 const initialState = {
     burgerExpanded: false,

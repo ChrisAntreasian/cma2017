@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import bgTransparency from 'img/transparent.png'
+import bgTransparency from '~/img/transparent.png'
 
 export default css`
     html, body {

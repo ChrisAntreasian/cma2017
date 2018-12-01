@@ -1,3 +1,4 @@
+import bgTransparency from '~/img/transparent.png'
 import css from 'styled-jsx/css'
 
 export default css`
@@ -8,6 +9,7 @@ export default css`
         width: 6.5rem;
         height: 6.5rem;
         z-index: 502;
+        padding: 1.3rem
     }
     .overlay {
         content: '';
@@ -26,6 +28,8 @@ export default css`
         left: 0;
         z-index: 501;
         text-align: center;
+        border-radius(4px);
+        background-image: url("${bgTransparency}");
     }
     .wrap {
         position: fixed;

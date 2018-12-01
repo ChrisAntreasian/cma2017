@@ -17,17 +17,19 @@ const Burger = (props) => {
 
     const burgerLinks = props.burgerLinks.map((burgerLink) => {
         return (
-            <BurgerLink {...burgerLink} key={burgerLink.key}/>
+            <BurgerLink {...burgerLink} key={burgerLink.key} burgerExpanded={props.burgerExpanded}/>
         )
     })
 
-    const burgerLayers = props.burgerLayers.map((burgerImg, i) => {
-        let negativeIndex = props.burgerLayers.length - i;
+    let cheeseBottomIndex = props.burgerLayers.findIndex(layer => layer.name === 'cheeseBottom')
+    const burgerLayers = props.burgerLayers.map((layerDetails, i) => {
+        let layerIndex = (i > cheeseBottomIndex) ? i - 1 : i
+        let negativeIndex = props.burgerLayers.length - layerIndex
         return (
             <BurgerLayer key={'burger-img-' + i}
-            src={burgerImg}
+            layerDetails={layerDetails}
             burgerExpanded={props.burgerExpanded}
-            index={i}
+            index={layerIndex}
             negativeIndex={negativeIndex}/>
         )
     })
@@ -47,7 +49,8 @@ const Burger = (props) => {
             <style jsx>{styles}</style>
             <style jsx>{`
                 nav {
-                    margin-bottom: ${props.burgerExpanded ?  100 : -220}px;
+                    height: ${props.burgerExpanded ? 'auto' : '1px'};
+                    padding-bottom: ${props.burgerExpanded ?  200 : -220}px;
                 }
                 @media only screen and (max-width: 31em) {
                     nav {

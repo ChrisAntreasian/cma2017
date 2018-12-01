@@ -60,21 +60,10 @@ class Quintuplapus extends Component {
             uncutPages={false}
             animationDuration={320}
             flipOnTouch={true}
-            flipOnTouchZone={10}
+            flipOnTouchZone={30}
+            disableSwipe={true}
             showHint={true}
-            onPageChange={(e) => {
-                console.log('page changed',e)
-            }}
-            onStartPageChange={(e) => {
-                console.log('start page changed', e)
-            }}
-            onStopSwiping={(e) => {
-                console.log('onStopSwiping', e)
-            }}
-            onStartSwiping={(e) => {
-                console.log('on start swiping',e)
-            }}
-            >
+            showTouchHint={true}>
                 {leaves}
             </FlipPage>
         )
