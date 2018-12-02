@@ -32,6 +32,7 @@ class Landing extends Component {
     }
 
     render() {
+        let resume = this.props.resume ? this.props.resume : '';
         let contentInViewNode = HTMLParser(this.props.resume);
         if (this.props.inView == 'contact') {
              contentInViewNode = <Contact />;
