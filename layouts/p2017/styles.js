@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 import bgTransparency from '~/img/transparent.png'
 
-export default css`
+export default css.global`
     html, body {
         height: 100%;
     }
@@ -87,5 +87,69 @@ export default css`
         section {
             flex-direction: column;
         }
+    }
+`
+
+import fontFiles from "./fonts";
+
+export const fonts = css.global`
+    @font-face {
+        font-family: 'quat-bold';
+        src:
+            local: "Quat Bold",
+            local: "Quat Bold",
+            url(${fontFiles.quatBoldWoff2}) format('woff2'),
+            url(${fontFiles.quatBoldWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'quat-italic';
+        src: url(${fontFiles.quatItalicWoff2}) format('woff2'),
+             url(${fontFiles.quatItalicWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'quat';
+        src: url(${fontFiles.quatRegWoff2}) format('woff2'),
+             url(${fontFiles.quatRegWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-bold';
+        src: url(${fontFiles.diavloBoldWoff2}) format('woff2'),
+             url(${fontFiles.diavloBoldWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-light';
+        src: url(${fontFiles.diavloLightWoff2}) format('woff2'),
+             url(${fontFiles.diavloLightWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlobook';
+        src: url(${fontFiles.diavloBookWoff2}) format('woff2'),
+             url(${fontFiles.diavloBookWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavloblack';
+        src: url(${fontFiles.diavloBlackWoff2}) format('woff2'),
+             url(${fontFiles.diavloBlackWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlomedium';
+        src: url(${fontFiles.diavloMediumWoff2}) format('woff2'),
+             url(${fontFiles.diavloMediumWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
     }
 `

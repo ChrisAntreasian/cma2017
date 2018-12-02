@@ -23,7 +23,7 @@ export default css`
         z-index: -1;
     }
     article {
-        width: 41.66665%
+        width: 41.66665%;
         padding: 1.3rem;
     }
     @media only screen and (max-width: 54em) {

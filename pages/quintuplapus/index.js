@@ -21,35 +21,7 @@ class Quintuplapus extends Component {
                 <img src={leaf.src} alt={leaf.alt} key={'leaf-' + i} />
             )
         })
-        /*
-        
-        {
-  "responsive": true,
-  "orientation": "horizontal",
-  "animationDuration": 200,
-  "treshold": 10,
-  "maxAngle": 45,
-  "maskOpacity": 0.4,
-  "perspective": "130em",
-  "pageBackground": "#fff",
-  "firstComponent": null,
-  "lastComponent": null,
-  "showHint": false,
-  "showSwipeHint": false,
-  "showTouchHint": false,
-  "uncutPages": false,
-  "style": {},
-  "height": 480,
-  "width": 320,
-  "onPageChange": "[function onPageChange]",
-  "className": "",
-  "flipOnLeave": false,
-  "loopForever": false,
-  "flipOnTouch": false,
-  "flipOnTouchZone": 10,
-  "disableSwipe": false
-}
-*/
+
         return (
             <FlipPage
             responsive={false}
@@ -74,7 +46,7 @@ class Quintuplapus extends Component {
         if (this.props.clientLoaded) {
             flipPageNode = this.initalizeFlipPage()
         }
-        console.log('page rendered')
+        console.log('page rendered 222')
         return (
             <Layout>
                 <section>

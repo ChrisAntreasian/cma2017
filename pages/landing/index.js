@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import withRedux from 'next-redux-wrapper'
+import { connect } from 'react-redux'
+
 import HTMLParser from 'html-react-parser'
 import { bindActionCreators } from 'redux'
 
