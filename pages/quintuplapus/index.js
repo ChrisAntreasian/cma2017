@@ -39,7 +39,7 @@ class Quintuplapus extends Component {
                 {leaves}
             </FlipPage>
         ) : 'loading...'
-
+        
         return (
             <Layout>
                 <section>
