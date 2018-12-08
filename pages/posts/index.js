@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import withRedux from 'next-redux-wrapper'
+import { connect } from 'react-redux'
 
 import store from '~/store'
 
@@ -34,7 +34,6 @@ class Posts extends Component {
         }
 
         let postsNode = null
-
         if (this.props.posts) {
             postsNode = this.props.posts.map((post, i) => {
                 return (
@@ -73,4 +72,4 @@ const mapStateToProps = state => ({
     error: state.posts.error
 })
 
-export default withRedux(store, mapStateToProps)(Posts)
+export default connect(mapStateToProps)(Posts)

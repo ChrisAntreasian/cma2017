@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import withRedux from 'next-redux-wrapper'
+import { connect } from 'react-redux'
 import HTMLParser from 'html-react-parser'
 import { bindActionCreators } from 'redux'
 
@@ -17,7 +17,7 @@ import Contact from './sub/contact'
 
 class Landing extends Component {
 
-    static getInitialProps ({store}) {
+    static getInitialProps ({store, isServer, pathname, query}) {
         const fetcher = require('~/fetcher')
 
         const resume = fetcher.getResume()
@@ -80,4 +80,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     switchContent
 }, dispatch)
 
-export default withRedux(store, mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(
+    mapStateToProps, 
+    mapDispatchToProps
+)(Landing)

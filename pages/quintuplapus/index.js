@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import withRedux from "next-redux-wrapper"
+import { connect } from 'react-redux'
 
 import Layout from '~/layouts/p2017'
 import store from '~/store'
@@ -62,4 +62,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     setClientLoaded
 }, dispatch)
 
-export default withRedux(store, mapStateToProps, mapDispatchToProps)(Quintuplapus)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Quintuplapus)
