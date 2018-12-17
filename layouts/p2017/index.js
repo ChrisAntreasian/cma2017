@@ -14,7 +14,6 @@ export default (props) => {
                 {props.children}
                 <Burger />
             </main>
-            <style jsx global>{normalize}</style>
             <style jsx global>{styles}</style>
         </div>
     )
