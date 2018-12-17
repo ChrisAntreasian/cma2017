@@ -8,9 +8,6 @@ export default css.global `
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      font-size: 16px;
-      line-height: 1.6rem;
       background-image: url("${bgTransparency}");
 
     }
@@ -32,7 +29,7 @@ export default css.global `
 
     main {
         width: 100%;
-        padding: 2.6rem 0 0;
+        padding: 4.2rem 0 0;
     }
     section {
         width: 100%;
@@ -87,5 +84,95 @@ export default css.global `
         section {
             flex-direction: column;
         }
+    }
+`
+
+import fontFiles from "~/fonts";
+console.log(fontFiles)
+export const fonts = css.global`
+    @font-face {
+        font-family: 'quat-bold';
+        src:
+            local: "Quat Bold",
+            local: "Quat Bold",
+            url(${fontFiles.quattBoldWoff2}) format('woff2'),
+            url(${fontFiles.quattBoldWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'quat-italic';
+        src: url(${fontFiles.quattItalicWoff2}) format('woff2'),
+             url(${fontFiles.quattItalicWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'quat';
+        src: url(${fontFiles.quattRegWoff2}) format('woff2'),
+             url(${fontFiles.quattRegWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-bold';
+        src: url(${fontFiles.diavloBoldWoff2}) format('woff2'),
+             url(${fontFiles.diavloBoldWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-light';
+        src: url(${fontFiles.diavloLightWoff2}) format('woff2'),
+             url(${fontFiles.diavloLightWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-book';
+        src: url(${fontFiles.diavloBookWoff2}) format('woff2'),
+             url(${fontFiles.diavloBookWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-black';
+        src: url(${fontFiles.diavloBlackWoff2}) format('woff2'),
+             url(${fontFiles.diavloBlackWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'diavlo-medium';
+        src: url(${fontFiles.diavloMediumWoff2}) format('woff2'),
+             url(${fontFiles.diavloMediumWoff}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    a {
+        color: white;
+    }
+    a:visited {
+        color: white;
+    }
+    html {
+        font-size: 16px;
+    }
+    body {
+        font-family: 'quat';
+        letter-spacing: 0.01em;
+        font-size: 17px;
+        line-height: 1.6rem;
+        letter-spacing: 0.05em;
+    }
+    h1, h2, h3, h4, h5 {
+        font-family: 'diavlo-bold';
+        letter-spacing: 0.1em;
+        line-height: 1.1em;
+        margin: 0.65rem 0;
+        font-weight: normal;
+    }
+    h1 {
+        font-size: 32px;
     }
 `

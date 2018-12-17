@@ -41,10 +41,19 @@ class Landing extends Component {
             <Layout>
                 <section>
                     <article>
-                        <h1>Welcome to the Landing Page</h1>
+                        <h1>Welcome to Landing</h1>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum arcu at imperdiet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet diam nec ipsum sagittis tristique. Phasellus pellentesque leo a lectus aliquam pharetra.
                         </p>
+                        <h2>Welcome to Landing</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum arcu at imperdiet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet diam nec ipsum sagittis tristique. Phasellus pellentesque leo a lectus aliquam pharetra.
+                        </p>
+                        <h3>Welcome to Landing</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum arcu at imperdiet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet diam nec ipsum sagittis tristique. Phasellus pellentesque leo a lectus aliquam pharetra.
+                        </p>
+                        <h4>Welcome to Landing</h4>
                         <p>
                             Vivamus a laoreet ante. Maecenas bibendum elit eget nunc condimentum placerat. Aenean at euismod nisl. Quisque laoreet dignissim eleifend. Nunc ultrices dignissim elit, nec tincidunt mi sollicitudin sed. Quisque magna diam, hendrerit at tristique vitae, volutpat sit amet orci. Nulla tempor sem id dictum ultricies. Suspendisse ultricies risus et nunc hendrerit,
                         </p>

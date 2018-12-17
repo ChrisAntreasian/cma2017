@@ -4,7 +4,7 @@ import normalize from 'normalize.css'
 import Header from './sub/header'
 import Burger from './sub/burger'
 
-import styles from './styles'
+import styles, { fonts } from './styles'
 
 export default (props) => {
     return (
@@ -15,6 +15,7 @@ export default (props) => {
                 <Burger />
             </main>
             <style jsx global>{styles}</style>
+            <style jsx global>{fonts}</style>
         </div>
     )
 }

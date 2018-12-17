@@ -6,7 +6,6 @@ export default css`
         margin: 0 auto;
         padding: 0.65rem 0;
         background-image: linear-gradient(to bottom, #1C5499, #15447e);
-        border-bottom: 3px solid #1f5ca7;
         color: white;
         position: fixed;
         top: 0;
@@ -15,6 +14,11 @@ export default css`
     a {
         color: white;
         cursor: pointer;
+        font-family: 'diavlo-black';
+        font-size: 22px;
+    }
+    a:link {
+        text-decoration: none;
     }
     .wrap {
         background: #1C5499;
