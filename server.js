@@ -17,9 +17,10 @@ const { parse } = require('url')
 app.prepare().then(() => {
     const server = express()
     server.use(bodyParser.json())
-    server.get('/', (req, res) => {
-      return app.render(req, res, '/landing', req.query)
-    })
+    
+    // server.get('/', (req, res) => {
+    //   return app.render(req, res, '/landing', req.query)
+    // })
 
     server.get('/wp/posts', (req, res) => {
         fetch( configs.wp.url + '/wp/v2/posts', {

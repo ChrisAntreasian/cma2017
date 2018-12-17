@@ -1,56 +1,28 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import withRedux from "next-redux-wrapper"
+import { connect } from 'react-redux'
 
 import Layout from '~/layouts/p2017'
 import store from '~/store'
 import { setClientLoaded } from './store'
 import styles from './styles'
+import dynamic from 'next/dynamic';
 
-let FlipPage = null
+const FlipPage = dynamic(import('react-flip-page'), { ssr: false });
+
 class Quintuplapus extends Component {
 
     componentDidMount() {
-        FlipPage = require('react-flip-page').default
         this.props.setClientLoaded()
     }
-
-    initalizeFlipPage() {
+    render() {
         const leaves = this.props.quintLeaves.map((leaf, i) => {
             return (
                 <img src={leaf.src} alt={leaf.alt} key={'leaf-' + i} />
             )
         })
-        /*
-        
-        {
-  "responsive": true,
-  "orientation": "horizontal",
-  "animationDuration": 200,
-  "treshold": 10,
-  "maxAngle": 45,
-  "maskOpacity": 0.4,
-  "perspective": "130em",
-  "pageBackground": "#fff",
-  "firstComponent": null,
-  "lastComponent": null,
-  "showHint": false,
-  "showSwipeHint": false,
-  "showTouchHint": false,
-  "uncutPages": false,
-  "style": {},
-  "height": 480,
-  "width": 320,
-  "onPageChange": "[function onPageChange]",
-  "className": "",
-  "flipOnLeave": false,
-  "loopForever": false,
-  "flipOnTouch": false,
-  "flipOnTouchZone": 10,
-  "disableSwipe": false
-}
-*/
-        return (
+
+        let flipPageNode = this.props.clientLoaded ? (
             <FlipPage
             responsive={false}
             orientation="horizontal"
@@ -66,15 +38,8 @@ class Quintuplapus extends Component {
             showTouchHint={true}>
                 {leaves}
             </FlipPage>
-        )
-    }
-
-    render() {  
-        let flipPageNode = 'loading...'
-        if (this.props.clientLoaded) {
-            flipPageNode = this.initalizeFlipPage()
-        }
-        console.log('page rendered')
+        ) : 'loading...'
+        
         return (
             <Layout>
                 <section>
@@ -97,4 +62,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     setClientLoaded
 }, dispatch)
 
-export default withRedux(store, mapStateToProps, mapDispatchToProps)(Quintuplapus)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Quintuplapus)

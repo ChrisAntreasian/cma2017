@@ -12,7 +12,7 @@ export default css`
     }
 `
 
-export const post = css`
+export const post = (css`
     article {
         width: 100%;
         padding: 1.3rem;
@@ -26,4 +26,4 @@ export const post = css`
     article h3 {
         margin-top: 0;
     }
-`
+`)

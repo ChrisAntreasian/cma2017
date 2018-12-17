@@ -4,7 +4,7 @@ import landingImg from './img/landing.jpg'
 const burgerLinks =  [{
     key: 'landing',
     title: 'Landing Page',
-    href: '/landing',
+    href: '/',
     img: landingImg
 }, {
     key: 'quint',

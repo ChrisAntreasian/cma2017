@@ -1,7 +1,7 @@
-import css from 'styled-jsx/css'
+import css, { global } from 'styled-jsx/css'
 import bgTransparency from '~/img/transparent.png'
 
-export default css`
+export default css.global `
     html, body {
         height: 100%;
     }

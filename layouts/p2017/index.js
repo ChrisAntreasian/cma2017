@@ -6,14 +6,15 @@ import Burger from './sub/burger'
 
 import styles from './styles'
 
-export default (props) => (
-    <div>
-        <Header />
-        <main>
-            {props.children}
-            <Burger />
-        </main>
-        <style jsx global>{normalize}</style>
-        <style jsx global>{styles}</style>
-    </div>
-)
+export default (props) => {
+    return (
+        <div>
+            <Header />
+            <main>
+                {props.children}
+                <Burger />
+            </main>
+            <style jsx global>{styles}</style>
+        </div>
+    )
+}

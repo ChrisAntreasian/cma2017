@@ -23,7 +23,7 @@ export default css`
         z-index: -1;
     }
     article {
-        width: 41.66665%
+        width: 41.66665%;
         padding: 1.3rem;
     }
     @media only screen and (max-width: 54em) {
@@ -44,7 +44,7 @@ export default css`
             z-index: -1;
          }
          article {
-            width: 74.99997%
+            width: 74.99997%;
         }
     }
 
@@ -57,7 +57,7 @@ export default css`
             order: 3;
         }
         article {
-            width: 100%
+            width: 100%;
         }
         h1 {
             text-align: center;
