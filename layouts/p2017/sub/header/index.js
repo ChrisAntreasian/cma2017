@@ -50,11 +50,11 @@ class Header extends Component {
         return (
             <header>
                 <div className="container">
-                    <div className="logo">
+                    <h2 className="logo">
                         <Link href="/"><a>
-                            Chris A Project 2017
+                            Christopher Antreasian
                         </a></Link>
-                    </div>
+                    </h2>
                     <div className="user">
                         { /*
 

@@ -1,16 +1,17 @@
 import css from 'styled-jsx/css'
+import grid from '~/styles/grid'
 
 export default css`
     aside {
         padding: 0.65rem;
-        width: 24.9998%;
+        width: ${grid[3]};
         position: absolute;
         right: 0;
         top: 0;
     }
     @media only screen and (max-width: 31em) {
         aside {
-            width: 100%;
+            width: ${grid[12]};
             position: initial;
             order: 2;
         }
@@ -28,6 +29,6 @@ export const post = css`
         margin-top: 0;
     }
     img {
-        width: 100%;
+        width: ${grid[12]};
     }
 `

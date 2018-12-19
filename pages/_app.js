@@ -1,9 +1,10 @@
 // pages/_app.js
 import React from 'react'
-import {Provider} from "react-redux";
-import App, {Container} from "next/app";
-import withRedux from "next-redux-wrapper";
-import makeStore from "../store";
+import {Provider} from 'react-redux'
+import App, {Container} from 'next/app'
+import withRedux from 'next-redux-wrapper'
+import makeStore from '../store'
+import normalize from 'normalize.css'
 
 export default withRedux(makeStore, {debug: true})(class MyApp extends App {
 

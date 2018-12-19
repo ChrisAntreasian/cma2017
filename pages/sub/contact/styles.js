@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import grid from '~/styles/grid'
 
 export default css`
     form {
@@ -8,7 +9,7 @@ export default css`
 
     input,
     textarea {
-        width: 70%;
+        width: ${grid[8]};
         margin-bottom: 1.3rem;
         padding: 0.65rem;
     }

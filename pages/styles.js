@@ -1,5 +1,6 @@
 import css from 'styled-jsx/css'
 import portrait from './img/chris-a-self-portrait.png'
+import grid from '~/styles/grid'
 
 export default css`
     section {
@@ -14,7 +15,7 @@ export default css`
         display: block;
         position: absolute;
         bottom: 0;
-        width: 100%;
+        width: ${grid[12]};
         height: 29.5rem;
         background-image: url("${portrait}");
         background-position-x: 67%;
@@ -23,7 +24,7 @@ export default css`
         z-index: -1;
     }
     article {
-        width: 41.66665%;
+        width: ${grid[5]};
         padding: 1.3rem;
     }
     @media only screen and (max-width: 54em) {
@@ -35,7 +36,7 @@ export default css`
             content:'';
             position: initial;
             order: 2;
-            width: 74.99997%;
+            width: ${grid[9]};
             height: 29.5rem;
             background-image: url("${portrait}");
             background-position-x: center;
@@ -44,7 +45,7 @@ export default css`
             z-index: -1;
          }
          article {
-            width: 74.99997%;
+            width: ${grid[9]}
         }
     }
 
@@ -53,11 +54,11 @@ export default css`
             flex-direction: column;
         }
         .portrait {
-            width: 100%;
+            width: ${grid[12]};
             order: 3;
         }
         article {
-            width: 100%;
+            width: ${grid[12]};
         }
         h1 {
             text-align: center;
@@ -71,8 +72,8 @@ export const switcher = css`
         background-image: linear-gradient(to bottom, #1C5499, #15447e);
     }
     section {
-        width: 58.33332%;
-        margin-left: 16.66665%;
+        width: ${grid[7]};
+        margin-left: ${grid[2]};
         display: flex;
         flex-direction: column;
     }
@@ -84,7 +85,7 @@ export const switcher = css`
     }
     @media only screen and (max-width: 31em) {
         section {
-            width: 100%;
+            width: ${grid[12]};
             padding: 0 0.65rem;
             margin-left: 0;
         }

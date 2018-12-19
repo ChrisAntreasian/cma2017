@@ -33,7 +33,7 @@ class Quintuplapus extends Component {
             animationDuration={320}
             flipOnTouch={true}
             flipOnTouchZone={30}
-            disableSwipe={true}
+            disableSwipe={false}
             showHint={true}
             showTouchHint={true}>
                 {leaves}
@@ -43,6 +43,7 @@ class Quintuplapus extends Component {
         return (
             <Layout>
                 <section>
+                    <h1>The Quintupalpus</h1>
                     <article>
                         {flipPageNode}
                     </article>

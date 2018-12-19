@@ -1,5 +1,7 @@
-import bgTransparency from '~/img/transparent.png'
 import css from 'styled-jsx/css'
+
+import bgTransparency from '~/img/transparent.png'
+import grid from '~/styles/grid'
 
 export default css`
     .burger {
@@ -53,7 +55,7 @@ export default css`
         }
         nav {
             position: fixed;
-            width: 100%;
+            width: ${grid[12]};
             display: none;
             padding-top: 6.5rem;
             top: 0;
@@ -64,7 +66,7 @@ export default css`
 `
 export const burgerLink = css`
     .link {
-        width: 100%;
+        width: ${grid[12]};
         margin: 0.65px 0 ;
     }
     .linkImage {
@@ -72,7 +74,7 @@ export const burgerLink = css`
         height: auto;
     }
     .linkImage img {
-        width: 100%;
+        width: ${grid[12]};
     }
     @media only screen and (max-width: 31em) {
         .linkImage {
@@ -88,10 +90,10 @@ export const burgerLayer = css`
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: ${grid[12]};
     }
     img {
-        width: 100%;
+        width: ${grid[12]};
     }
     @media only screen and (max-width: 31em) {
         .layer {

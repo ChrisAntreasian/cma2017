@@ -1,16 +1,14 @@
 import css, { global } from 'styled-jsx/css'
 import bgTransparency from '~/img/transparent.png'
+import grid from '~/styles/grid'
 
 export default css.global `
     html, body {
-        height: 100%;
+        height: ${grid[12]};
     }
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      font-size: 16px;
-      line-height: 1.6rem;
       background-image: url("${bgTransparency}");
 
     }
@@ -31,11 +29,11 @@ export default css.global `
     }
 
     main {
-        width: 100%;
-        padding: 2.6rem 0 0;
+        width: ${grid[12]};
+        padding: 4.2rem 0 0;
     }
     section {
-        width: 100%;
+        width: ${grid[12]};
         max-width: 1170px;
         margin: 0 auto;
         position: relative;
@@ -47,7 +45,7 @@ export default css.global `
         clear: both;
     }
     .wrap {
-        width: 100%;
+        width: ${grid[12]};
     }
     .container {
         position: relative;
@@ -59,7 +57,7 @@ export default css.global `
     }
     @media only screen and (max-width: 54em) {
         .container {
-            width: 100%;
+            width: ${grid[12]};
         }
     }
     /* wp post styles */
@@ -80,7 +78,7 @@ export default css.global `
     .alignleft,
     .alignright,
     .aligncenter {
-        max-width: 100%;
+        max-width: ${grid[12]};
         height: auto;
     }
     @media only screen and (max-width: 31em) {
