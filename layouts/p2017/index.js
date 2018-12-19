@@ -4,7 +4,8 @@ import normalize from 'normalize.css'
 import Header from './sub/header'
 import Burger from './sub/burger'
 
-import styles, { fonts } from './styles'
+import styles from './styles'
+import fonts from '~/styles/fonts'
 
 export default (props) => {
     return (
