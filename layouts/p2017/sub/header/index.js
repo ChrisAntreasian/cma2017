@@ -3,10 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Link from 'next/link'
 
-import UserStatus from './sub/UserStatus'
-import Dropdown from './sub/Dropdown'
-
-import styles, { errorStyles } from './styles.js'
+import styles from './styles.js'
 
 import {
     displayLogIn,
@@ -37,16 +34,6 @@ class Header extends Component {
     }
 
     render () {
-        let errorNode = null
-        if (this.props.logIn.error) {
-            errorNode = (
-                <div className="error">
-                    <span dangerouslySetInnerHTML={{__html: this.props.logIn.error}} />
-                    <style jsx>{ errorStyles }</style>
-                </div>
-            )
-        }
-
         return (
             <header>
                 <div className="container">
@@ -55,26 +42,6 @@ class Header extends Component {
                             Christopher Antreasian
                         </a></Link>
                     </h2>
-                    <div className="user">
-                        { /*
-
-                        // See if this makes sense to reintrduce later //
-
-
-                        <UserStatus
-                        user={this.props.user}
-                        displayLogIn={this.props.displayLogIn}
-                        logOutUser={this.props.logOutUser}/>
-
-                        <Dropdown
-                        logInUser={this.props.logInUser}
-                        hideLogIn={this.props.hideLogIn}
-                        loggedIn={this.props.user.loggedIn}
-                        logIn={this.props.logIn} />
-
-                        {errorNode}
-                        */}
-                    </div>
                 </div>
                 <style jsx>{styles}</style>
             </header>

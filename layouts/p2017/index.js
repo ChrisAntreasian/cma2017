@@ -3,6 +3,7 @@ import normalize from 'normalize.css'
 
 import Header from './sub/header'
 import Burger from './sub/burger'
+import Footer from './sub/footer'
 
 import styles from './styles'
 import fonts from '~/styles/fonts'
@@ -15,6 +16,7 @@ export default (props) => {
                 {props.children}
                 <Burger />
             </main>
+            <Footer />
             <style jsx global>{styles}</style>
             <style jsx global>{fonts}</style>
         </div>

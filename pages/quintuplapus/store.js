@@ -9,10 +9,11 @@ import leaf6 from './img/book-leaves/quintupalpus-leaf-6.jpg'
 import back from './img/book-leaves/quintupalpus-leaf-bc.png'
 
 export const CLIENT_LOADED = 'quint/CLIENT_LOADED'
-
+export const SET_GALLERY = 'quint/SET_GALLERY'
 
 const initialState = {
     clientLoaded: false,
+    galeryMedia: [],
     quintLeaves: [{
         alt: 'Quintpuapus demo cover',
         src: cover
@@ -40,13 +41,17 @@ const initialState = {
     }]
 }
 
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case CLIENT_LOADED:
             return {
                 ...state,
                 clientLoaded: true
+            }
+        case SET_GALLERY:
+            return {
+                ...state,
+                galeryMedia: action.media
             }
         default:
         return state

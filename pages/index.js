@@ -14,6 +14,7 @@ import { switcher } from './styles'
 import portrait from './img/chris-a-self-portrait.png'
 
 import Contact from './sub/contact'
+import Link from 'next/link'
 
 class Landing extends Component {
 
@@ -41,22 +42,21 @@ class Landing extends Component {
             <Layout>
                 <section>
                     <article>
-                        <h1>Welcome to Landing</h1>
+                        <h2>Web development</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum arcu at imperdiet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet diam nec ipsum sagittis tristique. Phasellus pellentesque leo a lectus aliquam pharetra.
+                            I have been working as a professional web developer for 10 years, gaining experience with full stack development. The aspect of web developemnt that I find most rewarding is building front ends.
+                            Using JavaScript and CSS together they are incredibly powerful tools that I use to build fun interactive user interfaces.
+                            Over my career the languages of the web have evolved, at one time jQuery was used to for user interactions and images for rounded corners. Newer tools like ReactJS provides organization and stability to interfaces and many of the older limitations of CSS have been solved.
+                            My skills with web technology have grown with these new tools, and many moments that may have proved chalenging in the past are now much more simple.
                         </p>
-                        <h2>Welcome to Landing</h2>
+                        <h2>Illustration</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum arcu at imperdiet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet diam nec ipsum sagittis tristique. Phasellus pellentesque leo a lectus aliquam pharetra.
+                            I started my artistic career at a young age, spending hours drawing cartoon characters at my great aunts house.
+                            Off and on since the end of high school I have been working on an illustrated novel called the Quintuplapus.
+                            It is an adventure story about an octopus, encountering a string of bad luck and challenges.
+                            If your interesting in learning more click the link below.
                         </p>
-                        <h3>Welcome to Landing</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum arcu at imperdiet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sit amet diam nec ipsum sagittis tristique. Phasellus pellentesque leo a lectus aliquam pharetra.
-                        </p>
-                        <h4>Welcome to Landing</h4>
-                        <p>
-                            Vivamus a laoreet ante. Maecenas bibendum elit eget nunc condimentum placerat. Aenean at euismod nisl. Quisque laoreet dignissim eleifend. Nunc ultrices dignissim elit, nec tincidunt mi sollicitudin sed. Quisque magna diam, hendrerit at tristique vitae, volutpat sit amet orci. Nulla tempor sem id dictum ultricies. Suspendisse ultricies risus et nunc hendrerit,
-                        </p>
+                        <p><Link href="/quintuplapus">Learn more about the quintuplapus</Link></p>
                     </article>
                     <div className="portrait"></div>
                     <FbSidebar />
@@ -69,7 +69,7 @@ class Landing extends Component {
                             <a onClick={() => {this.props.switchContent('resume')}}>Resume</a>
                             <a onClick={() => {this.props.switchContent('contact')}}>Contact</a>
                         </nav>
-                        <article>
+                        <article className="capsule">
                             {contentInViewNode}
                         </article>
                     </section>
