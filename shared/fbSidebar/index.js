@@ -23,9 +23,30 @@ class fbSidebar extends Component {
             )
         }
 
+        const mockposts = [
+            {
+                id: 1,
+                message: 'message',
+                picture: 'http://www.gigamegaultra.com/wordpress/wp-content/themes/q/images/quintuplapus-chapter3-btn.jpg'
+            }, {
+                id: 2,
+                message: 'message',
+                picture: 'http://www.gigamegaultra.com/wordpress/wp-content/themes/q/images/quintuplapus-chapter3-btn.jpg'
+            }, {
+                id: 3,
+                message: 'message',
+                picture: 'http://www.gigamegaultra.com/wordpress/wp-content/themes/q/images/quintuplapus-chapter3-btn.jpg'
+            }, {
+                id: 4,
+                message: 'message',
+                picture: 'http://www.gigamegaultra.com/wordpress/wp-content/themes/q/images/quintuplapus-chapter3-btn.jpg'
+            }
+        ]
         let postsNode = null
-        if (this.props.posts) {
-            postsNode = this.props.posts.map((post, i) => {
+        // if (this.props.posts) {
+            // postsNode = this.props.posts.map((post, i) => {
+        if (mockposts) {
+            postsNode = mockposts.map((post, i) => {
                 return (
                     <Post {...post} key={'fb-post' + post.id} />
                 )

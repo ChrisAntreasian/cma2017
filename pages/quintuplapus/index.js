@@ -11,7 +11,19 @@ import dynamic from 'next/dynamic';
 const FlipPage = dynamic(import('react-flip-page'), { ssr: false });
 
 class Quintuplapus extends Component {
+    static getInitialProps ({store, isServer, pathname, query}) {
+        const fetcher = require('~/fetcher')
 
+        const media = fetcher.getQuintuplapusGallery()
+        store.dispatch(media)
+
+        return media.resolve.then((res) => {
+            store.dispatch({
+                type: 'quint/SET_GALLERY',
+                media: res.media
+            })
+        })
+    }
     componentDidMount() {
         this.props.setClientLoaded()
     }
@@ -30,10 +42,10 @@ class Quintuplapus extends Component {
             width={770}
             pageBackground="none"
             uncutPages={false}
-            animationDuration={320}
+            animationDuration={700}
             flipOnTouch={true}
             flipOnTouchZone={30}
-            disableSwipe={false}
+            disableSwipe={true}
             showHint={true}
             showTouchHint={true}>
                 {leaves}
@@ -47,8 +59,8 @@ class Quintuplapus extends Component {
                     <article>
                         {flipPageNode}
                     </article>
-                    <style jsx>{styles}</style>
                 </section>
+                <style jsx>{styles}</style>
             </Layout>
         )
     }

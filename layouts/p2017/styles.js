@@ -1,16 +1,21 @@
 import css, { global } from 'styled-jsx/css'
 import bgTransparency from '~/img/transparent.png'
 import grid from '~/styles/grid'
+import colors from '~/styles/colors'
 
-export default css.global `
+export default css.global`
     html, body {
         height: ${grid[12]};
     }
     body {
-      margin: 0;
-      padding: 0;
-      background-image: url("${bgTransparency}");
-
+        margin: 0;
+        padding: 0;
+        background: ;
+        background-image: linear-gradient(to right,
+            ${colors.bGrey.down},
+            ${colors.bGrey.up},
+            ${colors.bGrey.down}
+        );
     }
     html {
         -webkit-box-sizing: border-box;
@@ -30,7 +35,7 @@ export default css.global `
 
     main {
         width: ${grid[12]};
-        padding: 4.2rem 0 0;
+        padding: 3.2rem 0 0;
     }
     section {
         width: ${grid[12]};
@@ -38,6 +43,8 @@ export default css.global `
         margin: 0 auto;
         position: relative;
         display: flex;
+        font-size: 17px;
+
     }
     section:after {
         content: '';
@@ -60,6 +67,19 @@ export default css.global `
             width: ${grid[12]};
         }
     }
+    .capsule {
+        padding: 1.3rem;
+        margin: 0.65rem 0;
+        border-radius: 8px;
+        font-size: 17px;
+        background-image: linear-gradient(to bottom, ${colors.bWhite.up}, ${colors.bWhite.o});
+        box-shadow: 0 0 0.65rem ${colors.bGrey.down};
+
+    }
+    .capsule ul {
+        padding-left: 20px;
+    }
+
     /* wp post styles */
 
     .alignleft {
@@ -81,6 +101,7 @@ export default css.global `
         max-width: ${grid[12]};
         height: auto;
     }
+
     @media only screen and (max-width: 31em) {
         section {
             flex-direction: column;

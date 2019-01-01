@@ -4,6 +4,22 @@ require('isomorphic-unfetch')
 const baseUrl = 'http://localhost:3000';
 
 module.exports = {
+    getQuintuplapusGallery: function() {
+        return {
+            type: 'wp/GET_Q_GALLERY',
+            resolve: new Promise( resolve => {
+                fetch(baseUrl + '/wp/q-gallery', {
+                    method: 'GET'
+                }).then( media => {
+                    return media.json()
+                }).then( media => {
+                    resolve({ media: media })
+                }).catch( error => {
+                    console.log('e:', error)
+                })
+            })
+        }
+    },
 
     getInitalWpPosts: function() {
         return {

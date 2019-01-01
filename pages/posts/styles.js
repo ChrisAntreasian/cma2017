@@ -1,5 +1,6 @@
 import css from 'styled-jsx/css'
 import grid from '~/styles/grid'
+import colors from '~/styles/colors'
 
 export default css`
     .posts {
@@ -13,13 +14,10 @@ export default css`
     }
 `
 
-export const post = (css`
+export const post = css`
     article {
         width: ${grid[12]};
-        padding: 1.3rem;
-        margin: 0.65rem 0;
-        border-radius: 4px;
-        background: white;
+        margin-top: 1.3rem;
     }
     article:first-of-type {
         margin-top: 0;
@@ -27,4 +25,4 @@ export const post = (css`
     article h3 {
         margin-top: 0;
     }
-`)
+`

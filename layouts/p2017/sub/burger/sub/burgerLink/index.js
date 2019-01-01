@@ -6,7 +6,7 @@ import { burgerLink } from './../../styles'
 export default (props) => {
     return (
         <div className="link">
-            <Link href={props.href}><a>
+            <Link href={props.href}><a onClick={props.closeBurger}>
                 <div className="linkImage">
                     <img src={props.img} alt={props.title} />
                 </div>

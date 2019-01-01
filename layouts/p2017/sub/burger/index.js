@@ -17,7 +17,10 @@ const Burger = (props) => {
 
     const burgerLinks = props.burgerLinks.map((burgerLink) => {
         return (
-            <BurgerLink {...burgerLink} key={burgerLink.key} burgerExpanded={props.burgerExpanded}/>
+            <BurgerLink {...burgerLink}
+            key={burgerLink.key}
+            closeBurger={props.closeBurger}
+            burgerExpanded={props.burgerExpanded}/>
         )
     })
 
@@ -30,7 +33,7 @@ const Burger = (props) => {
             layerDetails={layerDetails}
             burgerExpanded={props.burgerExpanded}
             index={layerIndex}
-            negativeIndex={negativeIndex}/>
+            negativeIndex={negativeIndex} />
         )
     })
 

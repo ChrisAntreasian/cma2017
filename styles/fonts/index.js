@@ -1,4 +1,5 @@
 import css, { global } from 'styled-jsx/css'
+import colors from '~/styles/colors'
 
 import diavloBlackWoff from './diavlo/diavlo_black_ii_37-webfont.woff'
 import diavloBlackWoff2 from './diavlo/diavlo_black_ii_37-webfont.woff2'
@@ -41,11 +42,8 @@ const fontFiles = {
 export default css.global`
     @font-face {
         font-family: 'quat-bold';
-        src:
-            local: "Quat Bold",
-            local: "Quat Bold",
-            url(${fontFiles.quattBoldWoff2}) format('woff2'),
-            url(${fontFiles.quattBoldWoff}) format('woff');
+        src: url(${fontFiles.quattBoldWoff2}) format('woff2'),
+             url(${fontFiles.quattBoldWoff}) format('woff');
         font-weight: normal;
         font-style: normal;
     }
@@ -99,10 +97,12 @@ export default css.global`
         font-style: normal;
     }
     a {
-        color: white;
+        color: ${colors.bWhite.up};
+        font-family: 'quat-bold';
+        text-decoration: none;
     }
     a:visited {
-        color: white;
+        color: ${colors.bWhite.up};
     }
     html {
         font-size: 16px;
@@ -110,9 +110,10 @@ export default css.global`
     body {
         font-family: 'quat';
         letter-spacing: 0.01em;
-        font-size: 17px;
+        font-size: 16px;
         line-height: 1.6rem;
         letter-spacing: 0.05em;
+        color: ${colors.bBlack.o}
     }
     h1, h2, h3, h4, h5 {
         font-family: 'diavlo-bold';
@@ -120,8 +121,12 @@ export default css.global`
         line-height: 1.1em;
         margin: 0.65rem 0;
         font-weight: normal;
+        color: ${colors.bBlack.o}
     }
     h1 {
         font-size: 32px;
+    }
+    h2 a, h3 a, h4 a, h5 a {
+        color: ${colors.bWhite.up};
     }
 `

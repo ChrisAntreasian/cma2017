@@ -1,10 +1,10 @@
 export default {
-    Red: {
+    red: {
         o: '#5b221d',
         up: '#693631',
         down: '#3a1613'
     },
-    Orange: {
+    orange: {
         o: '#f2821a',
         up: '#F49843',
         down: '#b15f13'
@@ -15,13 +15,20 @@ export default {
         down: '#95A8B5'
     },
     bWhite: {
-        o: '#fff1d6',
-        up: '#FFF8EC',
-        down: '#BAB09C'
+        o: '#FFF8EC',
+        up: '#FFF9F1',
+        down: '#D1CBC2'
     },
     bBlack: {
         o: '#161b30',
         up: '#404455',
         down: '#0C0F1B'
+    },
+    blue: {
+        o: '#162B54',
+        up: '#1A3160',
+        down: '#0E1B34'
     }
 }
+
+// 163B82

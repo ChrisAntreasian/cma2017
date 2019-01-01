@@ -1,6 +1,7 @@
 import css from 'styled-jsx/css'
 import portrait from './img/chris-a-self-portrait.png'
 import grid from '~/styles/grid'
+import colors from '~/styles/colors'
 
 export default css`
     section {
@@ -68,20 +69,19 @@ export default css`
 
 export const switcher = css`
     .wrap {
-        padding: 1.3rem 0;
-        background-image: linear-gradient(to bottom, #1C5499, #15447e);
+        padding: 1.3rem 0 0.65rem;
+        background-image: linear-gradient(to bottom, ${colors.red.o}, ${colors.red.down});
+        border-top: 4px solid ${colors.orange.o};
     }
     section {
-        width: ${grid[7]};
+        width: ${grid[6]};
         margin-left: ${grid[2]};
         display: flex;
         flex-direction: column;
     }
     article {
-        padding: 0 0.65rem;
-        background: white;
+        margin-top: 1.3rem;
         min-height: 16.45rem;
-        padding: 1.3rem;
     }
     @media only screen and (max-width: 31em) {
         section {
