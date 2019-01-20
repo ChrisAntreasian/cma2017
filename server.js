@@ -13,6 +13,18 @@ const handle = app.getRequestHandler()
 
 const { parse } = require('url')
 
+const fetcher = (action, method, data) => {
+    return fetch( method, {
+        method: action
+    }).then( r => {
+        return r.json()
+    }).then( r => {
+        return r
+    }).catch( error => {
+        console.log('e:', error)
+        return false
+    })
+}
 
 app.prepare().then(() => {
     const server = express()
@@ -23,49 +35,49 @@ app.prepare().then(() => {
     // })
 
     server.get('/wp/posts', (req, res) => {
-        fetch( configs.wp.url + '/wp/v2/posts', {
-            method: 'GET'
-        }).then( posts => {
-            return posts.json()
-        }).then( posts => {
-            res.send(posts)
-        }).catch( error => {
-            console.log('e:', error)
+        fetcher(
+            'GET', 
+            configs.wp.url + '/wp/v2/posts'
+        ).then( posts => {
+            if (posts) {
+                res.send(posts)
+            }
         })
     })
+
     server.get('/wp/resume', (req, res) => {
-        fetch( configs.wp.url + '/wp/v2/posts/' + configs.wp.resumeId, {
-            method: 'GET'
-        }).then( posts => {
-            return posts.json()
-        }).then( posts => {
-            res.send(posts)
-        }).catch( error => {
-            console.log('e:',error)
+        fetcher(
+            'GET', 
+            configs.wp.url + '/wp/v2/posts/' + configs.wp.resumeId
+        ).then( resume => {
+            if (resume) {
+                res.send(resume)
+            }
         })
     })
+
     server.get('/wp/q-gallery', (req, res) => {
-        fetch( configs.wp.url + '/wp/v2/media?parent=' + configs.wp.quintGalleryParentId, {
-            method: 'GET'
-        }).then( media => {
-            return media.json()
-        }).then( media => {
-            res.send(media)
-        }).catch( error => {
-            console.log('e:',error)
+        fetcher(
+            'GET', 
+            configs.wp.url + '/wp/v2/media?parent=' + configs.wp.quintGalleryParentId
+        ).then( gallery => {
+            if (gallery) {
+                res.send(gallery)
+            }
         })
     })
+
     server.get('/fb/posts', (req, res) => {
-        fetch( configs.fb.url + '/posts?access_token=' + configs.fb.token + '&fields=id,picture,type,message,caption', {
-            method: 'GET'
-        }).then( posts => {
-            return posts.json()
-        }).then( posts => {
-            res.send(posts)
-        }).catch( error => {
-            console.log('e:', error)
+        fetcher(
+            'GET', 
+             configs.fb.url + '/posts?access_token=' + configs.fb.token + '&fields=id,picture,type,message,caption'
+        ).then( posts => {
+            if (posts) {
+                res.send(posts)
+            }
         })
     })
+
     server.post('/contact', (req, res) => {
         email({
             subject: req.body.subject,

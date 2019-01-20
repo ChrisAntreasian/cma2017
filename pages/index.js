@@ -51,10 +51,11 @@ class Landing extends Component {
                         </p>
                         <h2>Illustration</h2>
                         <p>
-                            I started my artistic career at a young age, spending hours drawing cartoon characters at my great aunts house.
-                            Off and on since the end of high school I have been working on an illustrated novel called the Quintuplapus.
-                            It is an adventure story about an octopus, encountering a string of bad luck and challenges.
-                            If your interesting in learning more click the link below.
+                            I started my artistic career at a young age, spending hours drawing cartoon characters at my great aunts house. 
+                            My family motivated me to forge forward enrolling me in a number of after school art programs.
+                            Thanks to the opportunities given to me by my family art had become an enormous part of who i am as a person.
+                            Surrounded by other talented artists I have made it a point to continue to make art a priority in my life and attempt to 
+                            find enough motivation to create whenever I can.
                         </p>
                         <p><Link href="/quintuplapus">Learn more about the quintuplapus</Link></p>
                     </article>
