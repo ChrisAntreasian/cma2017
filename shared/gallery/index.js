@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { setActiveMedia } from '~/shared/gallery/store'
+import styles from './styles'
 
 const Gallery = (props) => {
     return (
@@ -9,7 +10,9 @@ const Gallery = (props) => {
                 <img src={props.media[props.activeMedia].media_details.sizes.full.source_url}
                 alt={props.media[props.activeMedia].title.rendered} />
                 <figcaption>
-                    {props.media[props.activeMedia].title.rendered}
+                    <h4>
+                        {props.media[props.activeMedia].title.rendered}
+                    </h4>
                 </figcaption>
             </figure>
             <div className="wrap wrap--red">
@@ -28,6 +31,7 @@ const Gallery = (props) => {
                     }
                 </section>
             </div>
+            <style jsx>{styles}</style>
         </article>
     )
 }
