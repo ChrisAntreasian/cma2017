@@ -53,6 +53,11 @@ export default css.global`
     }
     .wrap {
         width: ${grid[12]};
+        padding: 1.3rem 0;
+    }
+    .wrap--red {
+        background-image: linear-gradient(to bottom, ${colors.red.o}, ${colors.red.down});
+        border-top: 4px solid ${colors.orange.o};
     }
     .container {
         position: relative;

@@ -60,9 +60,9 @@ app.prepare().then(() => {
         fetcher(
             'GET', 
             configs.wp.url + '/wp/v2/media?parent=' + configs.wp.quintGalleryParentId
-        ).then( gallery => {
-            if (gallery) {
-                res.send(gallery)
+        ).then( media => {
+            if (media) {
+                res.send(media)
             }
         })
     })

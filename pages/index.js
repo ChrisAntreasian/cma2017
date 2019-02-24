@@ -44,27 +44,37 @@ class Landing extends Component {
                     <article>
                         <h2>Web development</h2>
                         <p>
-                            I have been working as a professional web developer for 10 years, gaining experience with full stack development. The aspect of web developemnt that I find most rewarding is building front ends.
-                            Using JavaScript and CSS together they are incredibly powerful tools that I use to build fun interactive user interfaces.
-                            Over my career the languages of the web have evolved, at one time jQuery was used to for user interactions and images for rounded corners. Newer tools like ReactJS provides organization and stability to interfaces and many of the older limitations of CSS have been solved.
-                            My skills with web technology have grown with these new tools, and many moments that may have proved chalenging in the past are now much more simple.
+                            Through my career as a web developer, I've gained some experience working fullstack, but have always been drawn to he front end.
+                            Over this time I have witnesed browsers and the languages of the web grow, change and evolved.
+                            At one time getElementById was the only method of selecting elements and images were used for rounded corners.
+                            CSS became more mature and jQuery became the libary of choice, making building user interfaces more simply.
+                            For the past few years I have been using newer tools like ReactJS and SCSS.
+                            Dispite the challenges of learning any new technology, ReactJS provided organization and stability to dynamic interfaces.
+                            I have since become comfortable with these tools and can use them quickly to realize application compositions.
+                            The internet is a wonderful place and using JavaScript and CSS I love building for the web.
                         </p>
                         <h2>Illustration</h2>
                         <p>
-                            I started my artistic career at a young age, spending hours drawing cartoon characters at my great aunts house. 
+                            I started my artistic endever at a young age, spending hours drawing cartoon characters at my great aunts house. 
                             My family motivated me to forge forward enrolling me in a number of after school art programs.
                             Thanks to the opportunities given to me by my family art had become an enormous part of who i am as a person.
                             Surrounded by other talented artists I have made it a point to continue to make art a priority in my life and attempt to 
                             find enough motivation to create whenever I can.
                         </p>
-                        <p><Link href="/quintuplapus">Learn more about the quintuplapus</Link></p>
+                        <p>
+                            Off and on, since graduating high school, I have been working on an illustrated novel called the Quintuplapus.
+                            It is a story about an octopus who experiences many challenges on his adventure.
+                            <Link href="/quintuplapus">
+                                <a>Learn more about the quintuplapus</a>
+                            </Link>
+                        </p>
                     </article>
                     <div className="portrait"></div>
                     <FbSidebar />
                     <style jsx>{styles}</style>
                 </section>
 
-                <div className="wrap">
+                <div className="wrap wrap--red">
                     <section>
                         <nav>
                             <a onClick={() => {this.props.switchContent('resume')}}>Resume</a>

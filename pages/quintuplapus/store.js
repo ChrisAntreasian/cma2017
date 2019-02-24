@@ -13,7 +13,8 @@ export const SET_GALLERY = 'quint/SET_GALLERY'
 
 const initialState = {
     clientLoaded: false,
-    galeryMedia: [],
+    galleryMedia: [],
+    galleryInView: null,
     quintLeaves: [{
         alt: 'Quintpuapus demo cover',
         src: cover
@@ -51,7 +52,8 @@ export default (state = initialState, action) => {
         case SET_GALLERY:
             return {
                 ...state,
-                galeryMedia: action.media
+                galleryMedia: action.media,
+                galleryInView: action.media[0]
             }
         default:
         return state

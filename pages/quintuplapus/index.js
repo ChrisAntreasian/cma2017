@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import Layout from '~/layouts/p2017'
 import store from '~/store'
 import { setClientLoaded } from './store'
-import styles from './styles'
-import dynamic from 'next/dynamic';
+import styles from './styles' 
+import dynamic from 'next/dynamic'
+import Gallery from '~/shared/gallery'
 
 const FlipPage = dynamic(import('react-flip-page'), { ssr: false });
-
 class Quintuplapus extends Component {
     static getInitialProps ({store, isServer, pathname, query}) {
         const fetcher = require('~/fetcher')
@@ -19,7 +19,7 @@ class Quintuplapus extends Component {
 
         return media.resolve.then((res) => {
             store.dispatch({
-                type: 'quint/SET_GALLERY',
+                type: 'gallery/SET_GALLERY',
                 media: res.media
             })
         })
@@ -51,7 +51,7 @@ class Quintuplapus extends Component {
                 {leaves}
             </FlipPage>
         ) : 'loading...'
-        
+
         return (
             <Layout>
                 <section>
@@ -60,6 +60,7 @@ class Quintuplapus extends Component {
                         {flipPageNode}
                     </article>
                 </section>
+                <Gallery />
                 <style jsx>{styles}</style>
             </Layout>
         )
