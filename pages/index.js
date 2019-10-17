@@ -44,14 +44,16 @@ class Landing extends Component {
                     <article>
                         <h2>Web development</h2>
                         <p>
-                            Through my career as a web developer, I've gained some experience working fullstack, but have always been drawn to he front end.
-                            Over this time I have witnesed browsers and the languages of the web grow, change and evolved.
-                            At one time getElementById was the only method of selecting elements and images were used for rounded corners.
-                            CSS became more mature and jQuery became the libary of choice, making building user interfaces more simply.
-                            For the past few years I have been using newer tools like ReactJS and SCSS.
-                            Dispite the challenges of learning any new technology, ReactJS provided organization and stability to dynamic interfaces.
-                            I have since become comfortable with these tools and can use them quickly to realize application compositions.
-                            The internet is a wonderful place and using JavaScript and CSS I love building for the web.
+                            Over my career as a web developer, browsers and the languages of the web have evolved alot.
+                            At one time getElementById was the only method of selecting elements and images had to be used for rounded corners.
+                            Amazing people found solutions to the short commings of he web.  More advanced CSS and Javascript libraries set out 
+                            to make ui more intersting and interactive. jQuery became the libary of choice simpliying how JS is writen, and adding a more elaborate feature set.
+                            Now powerful tools like webpack and React building complex user interfaces much more simple, organized and dynamic.
+                        </p>
+                        <p>
+                            My experience as a developer is fullstack, but I have always been drawn to the front end. 
+                            As a visual person, it's great to write code that outputs an interactive design. I am lucky to have worked at such an interesting
+                            time to be a web developer. ReactJS is a pleasure to do work with, dispite how quirky browser still can be.
                         </p>
                         <h2>Illustration</h2>
                         <p>
@@ -62,6 +64,7 @@ class Landing extends Component {
                             find enough motivation to create whenever I can.
                         </p>
                         <p>
+                            
                             Off and on, since graduating high school, I have been working on an illustrated novel called the Quintuplapus.
                             It is a story about an octopus who experiences many challenges on his adventure.
                             <Link href="/quintuplapus">
